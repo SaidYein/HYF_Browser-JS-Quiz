@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/HackYourFuture/browser-quiz-project-starter",
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "2.4.1"
   }
 }
