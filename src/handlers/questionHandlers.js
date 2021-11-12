@@ -2,7 +2,7 @@
 
 import { QUESTION_CONTAINER_ID } from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
-import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer } from '../utils/DOMUtils.js';
+import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, startTimer,endTimer } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
 export const incrementQuestionIndex = () => {
@@ -15,6 +15,9 @@ export const showCurrentQuestion = () => {
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
   clearDOMElement(questionContainer);
   questionContainer.appendChild(questionElement);
+
+  const timeCount = document.querySelector('.timer .timer_sec')
+  startTimer(10, timeCount)
 };
 
 export const clearQuizContainer = () => {
@@ -25,6 +28,7 @@ export const clearQuizContainer = () => {
 export function handleSelectedAnswer(evt) {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
+  endTimer();
 };
 
 export function handleQuestionResult() {

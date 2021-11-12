@@ -41,3 +41,17 @@ export const getKeyByValue = (object, value) => {
 
 // Checking if the User Answer is Correct or Not
 export const checkAnswer = (selectedAnswer, correctAnswer) => selectedAnswer === correctAnswer;
+
+//Timer
+let counter;
+export const startTimer = (time, timeCount) => {
+  counter = setInterval(()=>{
+    if(time>0){}
+    timeCount.textContent = time;
+    time > 0 ? time -- : time = 0;
+  }, 1000)
+} 
+
+export const endTimer = ()=> {
+  clearInterval(counter)
+}
