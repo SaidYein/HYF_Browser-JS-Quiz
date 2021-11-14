@@ -27,6 +27,9 @@ export const showCurrentQuestion = () => {
       }, 1000)
 
   button.removeEventListener('click', nextQuestion)
+  const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.removeEventListener('click', nextQuestion);
+
 };
 
 export const showCurrentScore = () => {
@@ -47,6 +50,7 @@ export function handleSelectedAnswer(evt) {
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
 
   clearInterval(timerData.counter)
+
   nextQuestionButton.addEventListener('click', nextQuestion);
 };
 
