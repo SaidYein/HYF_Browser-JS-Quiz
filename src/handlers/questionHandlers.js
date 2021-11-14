@@ -2,8 +2,8 @@
 
 import { QUESTION_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
-import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, startTimer,endTimer } from '../utils/DOMUtils.js';
-import { quizData } from '../data.js';
+import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer} from '../utils/DOMUtils.js';
+import { quizData, timerData } from '../data.js';
 import { nextQuestion } from '../listeners/questionListeners.js'
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
@@ -19,7 +19,14 @@ export const showCurrentQuestion = () => {
   questionContainer.appendChild(questionElement);
 
   const timeCount = document.querySelector('.timer .timer_sec')
-  startTimer(10, timeCount)
+  let time = currentQuestion.time;
+  
+  timerData.counter = setInterval(()=>{
+    timeCount.textContent = time;
+    if(time > 0){
+        time > 0 ? time -- : time = 0;}
+      }, 1000)
+
   button.removeEventListener('click', nextQuestion)
 };
 
@@ -33,8 +40,9 @@ export function handleSelectedAnswer(evt) {
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
 
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
-  endTimer();
-  button.addEventListener('click', nextQuestion);
+
+  clearInterval(timerData.counter)
+  nextQuestionButton.addEventListener('click', nextQuestion);
 };
 
 export function handleQuestionResult() {

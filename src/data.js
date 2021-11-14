@@ -24,6 +24,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
+      time: 15,
       links: [
         {
           text: 'javascript.info',
@@ -45,6 +46,7 @@ export const quizData = {
       },
       correct: 'd',
       selected: null,
+      time: 10,
       links: [
         {
           text: 'javascript.info',
@@ -68,6 +70,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
+      time: 13,
       links: [
         {
           text: 'w3schools',
@@ -85,6 +88,7 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
+      time: 10,
       links: [
         {
           text: 'w3schools',
@@ -103,6 +107,7 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
+      time: 15,
       links: [
         {
           text: 'MDN',
@@ -124,6 +129,7 @@ export const quizData = {
       },
       correct: 'd',
       selected: null,
+      time: 10,
       links: [
         {
           text: 'codepedia.info',
@@ -145,6 +151,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
+      time: 11,
       links: [
         {
           text: 'samanthaming',
@@ -162,6 +169,7 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
+      time: 14,
       links: [
         {
           text: 'w3schools',
@@ -178,6 +186,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
+      time: 10,
       links: [
         {
           text: 'w3schools',
@@ -199,6 +208,7 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
+      time: 13,
       links: [
         {
           text: 'MDN',
@@ -211,4 +221,8 @@ export const quizData = {
       ],
     },
   ],
+};
+
+export let timerData = {
+  counter :'' 
 };
