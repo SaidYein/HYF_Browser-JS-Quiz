@@ -3,6 +3,7 @@
 import {
   showCurrentQuestion,
   incrementQuestionIndex,
+  showCurrentScore,
   clearQuizContainer,
   handleSelectedAnswer,
   handleQuestionResult,
@@ -11,6 +12,7 @@ import {
 export const nextQuestion = () => {
   incrementQuestionIndex();
   showCurrentQuestion();
+  showCurrentScore();
 };
 
 export const selectedAnswer = (e) => {

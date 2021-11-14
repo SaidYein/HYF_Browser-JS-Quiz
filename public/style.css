@@ -11,3 +11,12 @@
   max-height: 80vh;
   overflow: auto;
 }
+
+.quiz-status span {
+  padding: .7em 1em;
+  background-color: #00898b;
+  border-radius: 50%;
+}
+.current-score {
+  margin-left: -850px;
+}

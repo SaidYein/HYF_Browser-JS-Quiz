@@ -3,6 +3,7 @@
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { selectedAnswer } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
+import { SCORE_SPAN_ID } from '../constants.js';
 
 /**
  * Create an Answer element
@@ -12,6 +13,15 @@ export const createAnswerElement = (answerText) => {
   answerElement.innerText = answerText;
   answerElement.addEventListener('click', selectedAnswer);
   return answerElement;
+};
+
+// Create UpToDate Score Element
+export const createScoreElement = (currentTotalScore) => {
+  const quizStatusBar = createDOMElement('div', { className: 'quiz-status' });
+  const currentScore = createDOMElement('span', { id: SCORE_SPAN_ID, className: 'current-score' });
+  quizStatusBar.appendChild(currentScore);
+  currentScore.innerText = currentTotalScore;
+  return quizStatusBar;
 };
 
 /**

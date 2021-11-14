@@ -13,6 +13,7 @@
 
 export const quizData = {
   currentQuestionIndex: 0,
+  currentTotalScore: 0,
   // the questions in the quiz
   questions: [
     {
@@ -224,5 +225,9 @@ export const quizData = {
 };
 
 export let timerData = {
-  counter :'' 
+  counter :''};
+
+export let animationData = {
+  i: 0,
+  step: 10
 };
