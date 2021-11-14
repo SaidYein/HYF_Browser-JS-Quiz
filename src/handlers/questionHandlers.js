@@ -1,9 +1,10 @@
 'use strict';
 
-import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID, SCORE_SPAN_ID } from '../constants.js';
+import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID, SCORE_SPAN_ID, NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
-import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer } from '../utils/DOMUtils.js';
-import { quizData, animationData, timerData } from '../data.js';
+import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer} from '../utils/DOMUtils.js';
+import { quizData, timerData, animationData } from '../data.js';
+import { nextQuestion } from '../listeners/questionListeners.js'
 
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
