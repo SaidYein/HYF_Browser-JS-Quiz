@@ -14,8 +14,6 @@ export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const questionElement = createQuestionElement(currentQuestion);
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
-  const button = getDOMElement(NEXT_QUESTION_BUTTON_ID);
-
   clearDOMElement(questionContainer);
   questionContainer.appendChild(questionElement);
 
@@ -25,10 +23,12 @@ export const showCurrentQuestion = () => {
   timerData.counter = setInterval(()=>{
     timeCount.textContent = time;
     if(time > 0){
-        time > 0 ? time -- : time = 0;}
+        time > 0 ? time -- : time = 0;
+      }
       }, 1000)
-
   button.removeEventListener('click', nextQuestion)
+  const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.removeEventListener('click', nextQuestion);
 };
 
 export const showCurrentScore = () => {

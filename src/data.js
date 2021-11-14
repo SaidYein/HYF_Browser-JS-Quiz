@@ -225,7 +225,8 @@ export const quizData = {
 };
 
 export let timerData = {
-  counter :''};
+  counter :''
+};
 
 export let animationData = {
   i: 0,
