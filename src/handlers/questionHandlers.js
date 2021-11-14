@@ -26,8 +26,9 @@ export const showCurrentQuestion = () => {
         time > 0 ? time -- : time = 0;
       }
       }, 1000)
-  button.removeEventListener('click', nextQuestion)
+  
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.removeEventListener('click', nextQuestion)
   nextQuestionButton.removeEventListener('click', nextQuestion);
 };
 
