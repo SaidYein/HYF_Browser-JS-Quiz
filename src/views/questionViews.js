@@ -1,7 +1,7 @@
 'use strict';
 
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-import { selectedAnswer } from '../listeners/questionListeners.js';
+import { nextQuestion, selectedAnswer } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { SCORE_SPAN_ID } from '../constants.js';
 
@@ -13,6 +13,17 @@ export const createAnswerElement = (answerText) => {
   answerElement.innerText = answerText;
   answerElement.addEventListener('click', selectedAnswer);
   return answerElement;
+};
+
+// Create a Reference Element
+export const createReferenceElement = (linkData) => {
+  const referenceElement = createDOMElement('li');
+  const referenceLink = createDOMElement('a');
+  referenceElement.appendChild(referenceLink);
+
+  referenceLink.text = linkData.text;
+  referenceLink.href = linkData.href;
+  return referenceElement;
 };
 
 // Create UpToDate Score Element
@@ -41,6 +52,15 @@ export const createQuestionElement = (question) => {
   }
 
   container.appendChild(answerContainer);
+
+  const referenceContainer = createDOMElement('ul');
+
+  question.links.forEach((questionLink) => {
+    const link = createReferenceElement(questionLink);
+    referenceContainer.appendChild(link);
+  })
+
+  container.appendChild(referenceContainer);
 
   return container;
 };
