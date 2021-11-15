@@ -27,7 +27,6 @@ export const showCurrentQuestion = () => {
     // when the timer is 0, the correct answer assigned. 
     if(time===0){
       currentQuestion.selected = currentQuestion.correct
-      console.log(currentQuestion)
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter)
       //
