@@ -59,7 +59,6 @@ export function handleSelectedAnswer(evt) {
 
   clearInterval(timerData.counter)
   nextQuestionButton.addEventListener('click', nextQuestion);
-  console.log(currentQuestion)
 };
 
 export function handleQuestionResult() {
