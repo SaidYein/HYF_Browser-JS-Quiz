@@ -1,7 +1,6 @@
 'use strict';
 
-import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
-import { createQuestionElement } from '../views/questionViews.js';
+import { QUIZ_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, getCardElements, getCurrentContent, getInactiveCardElements, getCardContent } from '../utils/DOMUtils.js';
 import { quizData, animationData } from '../data.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
@@ -11,8 +10,6 @@ export const incrementQuestionIndex = () => {
 };
 
 export const showCurrentQuestion = () => {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
 };
