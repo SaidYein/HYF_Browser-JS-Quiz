@@ -3,7 +3,7 @@
 import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID } from '../constants.js';
 import { showCurrentQuestion, showCurrentScore } from '../handlers/questionHandlers.js';
 import { clearDOMElement, createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
-import { createStartTheQuizButton,createNextQuestionButtonElement, createQuestionElement, createScoreElement } from '../views/questionViews.js';
+import { createStartPage, createStartPageText, createStartTheQuizButton,createNextQuestionButtonElement, createQuestionElement, createScoreElement } from '../views/questionViews.js';
 import { quizData } from '../data.js';
 
 const initializeQuiz = () => {
@@ -13,10 +13,12 @@ const initializeQuiz = () => {
 
 const showTheStartPage =() => {
   const userInterfaceContainer = getDOMElement('user-interface');
-  const startPageContainer = createDOMElement ('div',{id:'startPage'});
+  const startPageContainer = createStartPage()
+  const startPageText = createStartPageText()
   const startTheQuizButton = createStartTheQuizButton()
   userInterfaceContainer.appendChild(startPageContainer)
   startPageContainer.appendChild(startTheQuizButton)
+  startPageContainer.appendChild(startPageText)
 
   const startTheQuiz =() =>
   {

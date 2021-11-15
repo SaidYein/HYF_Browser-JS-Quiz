@@ -6,6 +6,15 @@ import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
 // Create the Starting Page
+export const createStartPage =() => {
+  const startPage = createDOMElement ('div',{id:'startPage'})
+  return startPage
+}
+export const createStartPageText =() => {
+  const startPageText = createDOMElement ('h3',{id:'startPageText'})
+  startPageText.innerText = 'Welcome to the JavaScript Quiz Neon Pub© Version'
+  return startPageText
+}
 
 export const createStartTheQuizButton = () =>{
   const startButton = createDOMElement('button')
