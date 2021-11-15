@@ -1,9 +1,9 @@
 'use strict';
 
-import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
+import { NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
 import { nextQuestion, selectedAnswer } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
-import { SCORE_SPAN_ID } from '../constants.js';
+import { quizData } from '../data.js';
 
 /**
  * Create an Answer element
@@ -18,11 +18,13 @@ export const createAnswerElement = (answerText) => {
 // Create a Reference Element
 export const createReferenceElement = (linkData) => {
   const referenceElement = createDOMElement('li');
-  const referenceLink = createDOMElement('a');
+  const referenceLink = createDOMElement('a', { className: 'current-reference' });
   referenceElement.appendChild(referenceLink);
 
   referenceLink.text = linkData.text;
   referenceLink.href = linkData.href;
+  referenceLink.setAttribute('target', '_blank');
+
   return referenceElement;
 };
 
@@ -35,34 +37,82 @@ export const createScoreElement = (currentTotalScore) => {
   return quizStatusBar;
 };
 
-/**
- * Create a full question element
- */
-export const createQuestionElement = (question) => {
-  const container = createDOMElement('div');
-  const title = createDOMElement('h1');
-  title.innerText = question.text;
-  container.appendChild(title);
+// Create Stackable Question Cards
+export const createQuestionElement = () => {
+  const outerCardContainer = createDOMElement('div', { className: 'outer-container' });
+  const innerCardContainer = createDOMElement('div', { className: 'inner-container' });
+  outerCardContainer.appendChild(innerCardContainer);
 
-  const answerContainer = createDOMElement('ol');
+  // Create the Questions Card, Give the proper className & Translate
+  const numberOfCard = quizData.questions.length;
+  let previousCard = undefined;
+  for (let i = numberOfCard - 1; i >= 0; i--) {
+    let newCard = undefined;
+    let cardContent = undefined;
+    const cardNumber = i + 1;
 
-  for (const answerKey in question.answers) {
-    const answer = createAnswerElement(question.answers[answerKey]);
-    answerContainer.appendChild(answer);
+    newCard = createDOMElement('div', {
+      className: `card card${cardNumber}`
+    });
+
+    cardContent = createDOMElement('div', {
+      className: 'card-content'
+    });
+
+    if (i !== 0) {
+      newCard.classList.add("inactive");
+    } else {
+      newCard.classList.add("active");
+      cardContent.classList.add("active");
+    }
+
+    // Creating Question Info
+    const title = createDOMElement('h1');
+    title.innerText = quizData.questions[i].text;
+    cardContent.appendChild(title);
+
+    const answerContainer = createDOMElement('ol');
+
+    for (const answerKey in quizData.questions[i].answers) {
+      const answer = createAnswerElement(quizData.questions[i].answers[answerKey]);
+      answerContainer.appendChild(answer);
+    }
+
+    cardContent.appendChild(answerContainer);
+
+    // Adding The References
+    const referenceContainer = createDOMElement('ul', { className: 'reference-container' });
+
+    quizData.questions[i].links.forEach((questionLink) => {
+      const link = createReferenceElement(questionLink);
+      referenceContainer.appendChild(link);
+    })
+
+    cardContent.appendChild(referenceContainer);
+
+    newCard.appendChild(cardContent);
+
+    if (previousCard) {
+      previousCard.appendChild(newCard);
+    } else {
+      innerCardContainer.appendChild(newCard);
+    }
+
+    previousCard = newCard;
   }
 
-  container.appendChild(answerContainer);
+  const progressContainer = createDOMElement('div', {
+    className: 'progress-container'
+  });
+  const step = createDOMElement('div', {
+    id: 'step'
+  });
 
-  const referenceContainer = createDOMElement('ul');
+  progressContainer.appendChild(step);
 
-  question.links.forEach((questionLink) => {
-    const link = createReferenceElement(questionLink);
-    referenceContainer.appendChild(link);
-  })
+  previousCard.appendChild(progressContainer);
 
-  container.appendChild(referenceContainer);
-
-  return container;
+  return outerCardContainer;
 };
 
 /**
