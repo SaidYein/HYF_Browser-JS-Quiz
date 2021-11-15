@@ -16,12 +16,14 @@ export const showCurrentQuestion = () => {
   const timeCount = document.querySelector('.timer .timer_sec')
   let time = currentQuestion.time;
   
-  timerData.counter = setInterval(()=>{
+  const timerCountdown = () => {
     timeCount.textContent = time;
     if(time > 0){
         time > 0 ? time -- : time = 0;
       }
-      }, 1000)
+  }
+
+  timerData.counter = setInterval(timerCountdown, 1000)
   
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion)
