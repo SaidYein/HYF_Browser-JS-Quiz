@@ -23,7 +23,7 @@ const showTheStartPage =() => {
     setupQuizHTML();
     showCurrentQuestion();
     showCurrentScore();
-    startTheQuizButton.style.visibility = "hidden"
+    startTheQuizButton.style.visibility = "hidden";
   } 
   startTheQuizButton.addEventListener('click',startTheQuiz)
 }
