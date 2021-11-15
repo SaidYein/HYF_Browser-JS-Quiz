@@ -2,7 +2,7 @@
 
 import { QUIZ_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, getCardElements, getCurrentContent, getInactiveCardElements, getCardContent } from '../utils/DOMUtils.js';
-import { quizData, animationData } from '../data.js';
+import { quizData, timerData, animationData } from '../data.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 
 export const incrementQuestionIndex = () => {
@@ -10,6 +10,25 @@ export const incrementQuestionIndex = () => {
 };
 
 export const showCurrentQuestion = () => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+
+  const timeCount = document.querySelector('.timer .timer_sec')
+  let time = currentQuestion.time;
+  
+  const timerCountdown = () => {
+    // Timer countdown gets the time variable from Line 21 which gets the data from data.js
+    time > 0 ? time -- : time = 0;
+    timeCount.textContent = time;
+    // when the timer is 0, the correct answer assigned. 
+    if(time===0){
+      currentQuestion.selected = currentQuestion.correct
+      // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
+      clearInterval(timerData.counter)
+      //
+    }
+  }
+  timerData.counter = setInterval(timerCountdown, 1000)
+  
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
 };
@@ -57,6 +76,8 @@ export function handleSelectedAnswer(evt) {
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
 
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
+
+  clearInterval(timerData.counter)
   nextQuestionButton.addEventListener('click', nextQuestion);
 };
 
