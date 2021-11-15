@@ -3,7 +3,7 @@
 import {
   showCurrentQuestion,
   incrementQuestionIndex,
-  showCurrentScore,
+  // showCurrentScore,
   clearQuizContainer,
   handleSelectedAnswer,
   handleQuestionResult,
@@ -13,7 +13,7 @@ import {
 export const nextQuestion = () => {
   incrementQuestionIndex();
   showCurrentQuestion();
-  showCurrentScore();
+  // showCurrentScore();
   deleteQuestionCard();
 };
 

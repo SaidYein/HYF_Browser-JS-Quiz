@@ -11,5 +11,9 @@
 export const QUESTION_CONTAINER_ID = 'question-container';
 export const QUIZ_CONTAINER_ID = 'quiz-container';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
-
 export const SCORE_SPAN_ID = 'score-span';
+export const CURRENT_SCORE_ID = 'current-score';
+export const COUNTDOWN_ID = 'countdown';
+export const STATUS_BAR_ID = 'status-bar';
+
+

@@ -1,18 +1,21 @@
 'use strict';
 
-import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID, SCORE_SPAN_ID, NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-import { createQuestionElement } from '../views/questionViews.js';
+import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID, CURRENT_SCORE_ID, NEXT_QUESTION_BUTTON_ID } from '../constants.js';
+import { createQuestionElement, createCurrentScoreElement } from '../views/questionViews.js';
 import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, getCardElements, getCurrentContent, getInactiveCardElements, getCardContent } from '../utils/DOMUtils.js';
 import { quizData, timerData, animationData } from '../data.js';
 import { nextQuestion } from '../listeners/questionListeners.js'
 
 export const incrementQuestionIndex = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  quizData.currentQuestionIndex += 1;
 };
 
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
+  // const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
+  const currentScore = quizData.currentTotalScore;
+  const scoreSpan = getDOMElement(CURRENT_SCORE_ID);
+  scoreSpan.innerText = currentScore;
   const timeCount = document.querySelector('.timer .timer_sec')
   let time = currentQuestion.time;
   
@@ -54,11 +57,11 @@ export const deleteQuestionCard = () => {
   }
 };
 
-export const showCurrentScore = () => {
-  const currentScore = quizData.currentTotalScore;
-  const scoreSpan = getDOMElement(SCORE_SPAN_ID);
-  scoreSpan.innerText = currentScore;
-};
+// export const showCurrentScore = () => {
+//   const currentScore = quizData.currentTotalScore;
+//   const scoreSpan = getDOMElement(SCORE_SPAN_ID);
+//   scoreSpan.innerText = currentScore;
+// };
 
 export const clearQuizContainer = () => {
   const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);

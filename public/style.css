@@ -5,7 +5,7 @@ body{
 li {
   list-style-type: none;
 }
-.centered {
+/* .centered {
   position: fixed;
   top: 20%;
   left: 50%;
@@ -17,7 +17,7 @@ li {
   height: auto;
   max-height: 80vh;
   overflow: auto;
-}
+} */
 
 .outer-container {
   margin: 50px auto;
