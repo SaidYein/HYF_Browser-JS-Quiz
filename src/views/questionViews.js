@@ -5,6 +5,14 @@ import { nextQuestion, selectedAnswer } from '../listeners/questionListeners.js'
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
+// Create the Starting Page
+
+export const createStartTheQuizButton = () =>{
+  const startButton = createDOMElement('button')
+  startButton.innerText = 'Start The Quiz'
+  return startButton
+}
+
 /**
  * Create an Answer element
  */
