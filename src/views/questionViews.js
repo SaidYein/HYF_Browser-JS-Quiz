@@ -15,7 +15,9 @@ export const createStartPageText =() => {
   startPageText.innerText = 'Welcome to the JavaScript Quiz Neon Pub© Version'
   return startPageText
 }
-
+export const createStartTheQuizButton =() => {
+  const startButton = createDOMElement ('button')
+  startButton.innerText = 'Start the Quiz!'
   return startButton;
 };
 

@@ -3,7 +3,7 @@
 import { QUESTION_CONTAINER_ID, QUIZ_CONTAINER_ID } from '../constants.js';
 import { showCurrentQuestion, showCurrentScore } from '../handlers/questionHandlers.js';
 import { clearDOMElement, createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
-import { createStartPage, createStartPageText, createStartTheQuizButton,createNextQuestionButtonElement, createQuestionElement, createScoreElement } from '../views/questionViews.js';
+import { createStartPage, createStartPageText, createStartTheQuizButton,createNextQuestionButtonElement, createQuestionElement, createStatusBarElement} from '../views/questionViews.js';
 import { quizData } from '../data.js';
 
 const initializeQuiz = () => {
