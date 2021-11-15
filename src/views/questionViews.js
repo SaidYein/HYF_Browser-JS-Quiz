@@ -7,7 +7,7 @@ import { quizData } from '../data.js';
 
 // Create the Starting Page
 export const createStartTheQuizButton = () => {
-  const startButton = createDOMElement('button');
+  const startButton = createDOMElement('button', { className: 'start-quiz' });
   startButton.innerText = 'Start The Quiz';
 
   return startButton;
