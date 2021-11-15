@@ -1,6 +1,13 @@
+body{
+  background-color:black;
+}
+
+li {
+  list-style-type: none;
+}
 .centered {
   position: fixed;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -12,9 +19,130 @@
   overflow: auto;
 }
 
+.outer-container {
+  margin: 50px auto;
+}
+.inner-container {
+  min-width: 800px;
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  left: -520px;
+}
+
+.card {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  margin: 0 auto;
+  width: 720px;
+  border-radius: 5px;
+  height: 320px;
+  box-sizing: border-box;
+  transition: .3s ease;
+  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.35);
+}
+.card1 {
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+  box-shadow: none;
+  background-color: rgba(0,0,0,0.75);
+  animation: neon 2s ease-in-out infinite alternate;
+}
+.card2,.card4,.card6,.card8,.card10 {
+  background-color: #1F51FF;
+}
+.card3,.card5,.card7,.card9 {
+  background-color: #FF10F0;
+}
+
+.card-content {
+  position: absolute;
+  top: 5%;
+  opacity: 0;
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+  visibility: hidden;
+}
+.active {
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes neon {
+  from {
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #228dff,
+inset 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+  }
+  to {
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #228dff,
+inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  }
+}
+
+.active > .card-content {
+  opacity: 1;
+  transition: ease-in-out 1s;
+}
+
+.reference-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.current-reference {
+  text-decoration: none;
+  color: #ff9100;
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: medium;
+  font-weight: 900;
+}
+
+.progress-container {
+  background-color: #FF10F0;
+  height: 8px;
+  position: relative;
+  margin-top: 330px;
+  left: 0;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+}
+#step {
+  background-color: #770a70;
+  height: 8px;
+  width: 0%;
+  border-radius: 0 0 0 5px;
+}
+
+button {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border: none;
+  margin-left: 360px;
+  margin-top: 155px;
+  background-color: #FF10F0;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .3s; /* Animation */
+}
+button:hover {
+  transform: scale(1.2);
+  background-color: #b40fa9;
+}
+
 .quiz-status span {
   padding: .7em 1em;
-  background-color: #00898b;
+  background-color: #1F51FF;
   border-radius: 50%;
 }
 .current-score {
@@ -22,4 +150,6 @@
   background-color: #00898b;
   border-radius: 50%;
   margin-left: -850px;
+  color: white;
+  font-weight: bolder;
 }
