@@ -37,7 +37,7 @@ export const createReferenceElement = (linkData) => {
 };
 
 // Create Status-Bar Element
-export const createStatusBarElement = (currentTotalScore) => {
+export const createStatusBarElement = (currentTotalScore, timer) => {
   const quizStatusBar = createDOMElement('div', { className: 'quiz-status' });
   const currentScore = createDOMElement('span', { id: SCORE_SPAN_ID, className: 'current-score' });
   const currentTimer = createDOMElement('span', { id: TIMER_SPAN_ID, className: 'current-timer' });
@@ -46,6 +46,7 @@ export const createStatusBarElement = (currentTotalScore) => {
   quizStatusBar.appendChild(currentTimer);
 
   currentScore.innerText = currentTotalScore;
+  currentTimer.innerText = timer;
 
   return quizStatusBar;
 };
