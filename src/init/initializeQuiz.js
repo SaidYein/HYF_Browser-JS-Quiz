@@ -25,6 +25,7 @@ const showTheStartPage = () => {
     showCurrentQuestion();
     showCurrentScore();
     startTheQuizButton.style.visibility = "hidden";
+    startPageContainer.style.visibility = "hidden"
   } 
   startTheQuizButton.addEventListener('click',startTheQuiz)
 }

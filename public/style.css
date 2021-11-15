@@ -5,10 +5,7 @@ body{
 li {
   list-style-type: none;
 }
-#startPage {
-  all:initial;
-  background-image: url('https://i.ibb.co/zV1b90M/Brick-Wall.jpg');
-}
+
 
 .centered {
   position: fixed;
