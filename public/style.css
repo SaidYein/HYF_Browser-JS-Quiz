@@ -32,8 +32,8 @@ li {
   height: 400px;
   width: 100%;
   position: absolute;
-  top: 30px;
-  left: -520px;
+  top: 50px;
+  left: -150px;
 }
 
 .card {
@@ -145,16 +145,22 @@ button:hover {
   background-color: #b40fa9;
 }
 
-.quiz-status span {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
+.quiz-status {
+display: flex;
+justify-content: space-evenly;
 }
 .current-score {
   padding: .7em 1em;
-  background-color: #00898b;
+  background-color: #1F51FF;
   border-radius: 50%;
-  margin-left: -850px;
+  color: white;
+  font-weight: bolder;
+}
+.current-timer {
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  margin-left: 500px;
   color: white;
   font-weight: bolder;
 }

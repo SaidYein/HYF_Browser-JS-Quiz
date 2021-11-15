@@ -11,7 +11,7 @@ const initializeQuiz = () => {
   showTheStartPage();
 };
 
-const showTheStartPage =() => {
+const showTheStartPage = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
   const startPageContainer = createStartPage()
   const startPageText = createStartPageText()
@@ -20,8 +20,7 @@ const showTheStartPage =() => {
   startPageContainer.appendChild(startTheQuizButton)
   startPageContainer.appendChild(startPageText)
 
-  const startTheQuiz =() =>
-  {
+  const startTheQuiz = () => {
     setupQuizHTML();
     showCurrentQuestion();
     showCurrentScore();
@@ -33,7 +32,8 @@ const showTheStartPage =() => {
 const setupQuizHTML = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
   const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
-  quizContainer.appendChild(createScoreElement(quizData.currentTotalScore));
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  quizContainer.appendChild(createStatusBarElement(quizData.currentTotalScore, currentQuestion.time));
   const questionContainer = createDOMElement('div', {
     id: QUESTION_CONTAINER_ID,
   });
