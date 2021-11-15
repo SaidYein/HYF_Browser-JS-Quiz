@@ -21,16 +21,22 @@ export const showCurrentQuestion = () => {
   let time = currentQuestion.time;
   
   const timerCountdown = () => {
+    // Timer countdown gets the time variable from Line 21 which gets the data from data.js
+    time > 0 ? time -- : time = 0;
     timeCount.textContent = time;
-    if(time > 0){
-        time > 0 ? time -- : time = 0;
-      }
+    // when the timer is 0, the correct answer assigned. 
+    if(time===0){
+      currentQuestion.selected = currentQuestion.correct
+      console.log(currentQuestion)
+      // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
+      clearInterval(timerData.counter)
+      //
+    }
   }
-
   timerData.counter = setInterval(timerCountdown, 1000)
   
+  
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
-  nextQuestionButton.removeEventListener('click', nextQuestion)
   nextQuestionButton.removeEventListener('click', nextQuestion);
 };
 
@@ -53,6 +59,7 @@ export function handleSelectedAnswer(evt) {
 
   clearInterval(timerData.counter)
   nextQuestionButton.addEventListener('click', nextQuestion);
+  console.log(currentQuestion)
 };
 
 export function handleQuestionResult() {
