@@ -18,9 +18,7 @@ export const showCurrentQuestion = () => {
   
   const timerCountdown = () => {
     timeCount.textContent = time;
-    if(time > 0){
-        time > 0 ? time -- : time = 0;
-      }
+    time > 0 ? time -- : time = 0;
   }
 
   timerData.counter = setInterval(timerCountdown, 1000)
