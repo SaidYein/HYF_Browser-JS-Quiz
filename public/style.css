@@ -1,35 +1,138 @@
-body{
-  background-color:rgb(173, 167, 167);
+@font-face {
+  font-family: 'Beon Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Beon Medium'), url('fonts/beon-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Beon Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Beon Medium'), url('fonts/Beon.woff') format('woff');
+}
+@font-face {
+  font-family: 'Budmo Jiggler';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jiggler'), url('fonts/budmo\ jiggler.woff') format('woff');
+}
+@font-face {
+  font-family: 'Budmo Jigglish';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jigglish'), url('fonts/budmo\ jigglish.woff') format('woff');
+}
+@font-face {
+  font-family: 'Text Me One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/textmeone/v10/i7dOIFdlayuLUvgoFvHQFVZbYFc.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
+:root {
+  font-family: 'Text Me One';
+  font-size: 18px;
+  line-height: 2;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+}
+#user-interface {
+  max-width: 1200px;
+  max-height: 1000px;
+  margin: 0 auto;
+}
+#quiz-container {
+  width: 1100px;
+  height: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+/* status bar */
+#status-bar {
+  width: 90%;
+  height: 72px;
+  display: flex;
+  justify-content: space-around;
+}
+.circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+#current-score{
+  width: 90%;
+  font-size: .8rem;
+}
+#countdown{
+  width: 90%;
+  font-size: .8rem;
+}
+
+
+#question-container {
+  width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#references-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#next-question-button {
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  text-align: center;
+  
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+ol {
+}
 li {
   list-style-type: none;
 }
-/* .centered {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+a {
+  text-decoration: none;
+  font-size: 0.8rem;
 }
 
-.scrollable {
-  height: auto;
-  max-height: 80vh;
-  overflow: auto;
-} */
-
-.outer-container {
-  margin: 50px auto;
+.learn {
+  font-size: 0.8rem;
 }
-.inner-container {
-  min-width: 800px;
-  height: 400px;
-  width: 100%;
+/* .question {
+  margin: 0 auto;
   position: absolute;
-  top: 100px;
-  left: -420px;
-}
+  bottom: 0px;
+  width: 750px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+} */
 
 .card {
   position: absolute;
@@ -59,12 +162,16 @@ li {
 
 .card-content {
   position: absolute;
-  top: 5%;
   opacity: 0;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   color: white;
   visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .active {
   display: block;
@@ -89,11 +196,7 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   transition: ease-in-out 1s;
 }
 
-.reference-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-.current-reference {
+/* .current-reference {
   text-decoration: none;
   color: #ff9100;
   background-color: white;
@@ -101,7 +204,7 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 20px;
   font-size: medium;
   font-weight: 900;
-}
+} */
 
 .progress-container {
   background-color: #FF10F0;
@@ -119,7 +222,7 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 0 0 0 5px;
 }
 
-button {
+/* button {
   position: fixed;
   width: 120px;
   height: 120px;
@@ -165,4 +268,4 @@ button:hover {
   color:#faf600;
   background-color: #b40fa9;;
   box-shadow: 0 3px 10px 4px rgba(255, 238, 2, 0.35);
-}
+} */

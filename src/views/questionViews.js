@@ -6,7 +6,7 @@ import {
   COUNTDOWN_ID,
   CURRENT_SCORE_ID,
   STATUS_BAR_ID,
-  QUIZ_CONTAINER_ID
+  QUIZ_CONTAINER_ID,
 } from '../constants.js';
 import {
   nextQuestion,
@@ -73,7 +73,7 @@ export const createCurrentScoreElement = () => {
 };
 
 //* Create the countdown element
-export const createCountdownElement = () => {
+const createCountdownElement = () => {
   const countdownContainer = createDOMElement('div', { className: 'circle' });
   const countdown = createDOMElement('time', { id: COUNTDOWN_ID });
   countdownContainer.appendChild(countdown);
@@ -81,7 +81,7 @@ export const createCountdownElement = () => {
 };
 
 //* Create the status bar container
-export const createStatusBarContainer = () => {
+const createStatusBarContainer = () => {
   const statusBar = createDOMElement('div', { id: STATUS_BAR_ID });
   const currentScore = createCurrentScoreElement();
   const countdown = createCountdownElement();
@@ -90,17 +90,19 @@ export const createStatusBarContainer = () => {
   return statusBar;
 };
 
-// // Create the current score element
-
-// export const createScoreElement = () => {
-//   const quizStatusBar = createDOMElement('div', { className: 'quiz-status' });
-//   const currentScore = createDOMElement('span', {
-//     id: SCORE_SPAN_ID,
-//     className: 'current-score',
-//   });
-//   quizStatusBar.appendChild(currentScore);
-//   return quizStatusBar;
-// };
+/**
+ * Create the progress bar
+ */
+const progressBarElement = () => {
+  const progressContainer = createDOMElement('div', {
+    className: 'progress-container',
+  });
+  const step = createDOMElement('div', {
+    id: 'step',
+  });
+  progressContainer.appendChild(step);
+  return progressContainer;
+};
 
 /**
  * Create a full question element
@@ -108,13 +110,6 @@ export const createStatusBarContainer = () => {
 
 // Create Stackable Question Cards
 export const createQuestionElement = () => {
-  // const outerCardContainer = createDOMElement('div', {
-  //   className: 'outer-container',
-  // });
-  // const innerCardContainer = createDOMElement('div', {
-  //   className: 'inner-container',
-  // });
-  // outerCardContainer.appendChild(innerCardContainer);
   const questionsContainer = createDOMElement('div', {
     id: QUESTION_CONTAINER_ID,
   });
@@ -177,28 +172,19 @@ export const createQuestionElement = () => {
     previousCard = newCard;
   }
 
-  const progressContainer = createDOMElement('div', {
-    className: 'progress-container',
-  });
-  const step = createDOMElement('div', {
-    id: 'step',
-  });
-
-  progressContainer.appendChild(step);
-
-  previousCard.appendChild(progressContainer);
-
+  const progressBar = progressBarElement();
+  previousCard.appendChild(progressBar);
   return questionsContainer;
 };
 
 /**
  * Creates and returns the next questions button
  */
+
 export const createNextQuestionButtonElement = () => {
   const buttonElement = createDOMElement('button', {
     id: NEXT_QUESTION_BUTTON_ID,
   });
-
   buttonElement.innerText = 'Next question';
   buttonElement.addEventListener('click', nextQuestion);
   return buttonElement;

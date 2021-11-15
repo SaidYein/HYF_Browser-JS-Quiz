@@ -98,25 +98,24 @@ export const quizData = {
       ],
     },
     {
-      text: `What is the correct JavaScript syntax to change the content of the HTML element below?\n
-      <p id="demo">This is a demonstration.</p>`,
+      text: `How do you find the number with the highest value of x and y?`,
       answers: {
-        a: 'document.getElementById("demo").innerHTML = "Hello World!";',
-        b: '#demo.innerHTML = "Hello World!";',
-        c: 'document.getElement("p").innerHTML = "Hello World!";',
-        d: 'document.getElementByName("p").innerHTML = "Hello World!";',
+        a: 'Math.ceil(x,y)',
+        b: 'ceil(x,y)',
+        c: 'top(x,y)',
+        d: 'Math.max(x,y)',
       },
-      correct: 'a',
+      correct: 'd',
       selected: null,
       time: 15,
       links: [
         {
           text: 'MDN',
-          href: 'https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max',
         },
         {
           text: 'w3schools',
-          href: 'https://www.w3schools.com/js/js_htmldom_html.asp',
+          href: 'https://www.w3schools.com/jsref/jsref_max.asp',
         }
       ],
     },
@@ -224,11 +223,11 @@ export const quizData = {
   ],
 };
 
-export let timerData = {
+export const timerData = {
   counter :''
 };
 
-export let animationData = {
+export const animationData = {
   i: 0,
   step: 0,
   layer: 10,
