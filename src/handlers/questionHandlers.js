@@ -13,6 +13,7 @@ export const incrementQuestionIndex = () => {
 export const showCurrentQuestion = () => {
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
+  quizData.isAnswered = false;
 };
 
 export const deleteQuestionCard = () => {
@@ -66,9 +67,10 @@ export function handleSelectedAnswer(evt) {
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
   nextQuestionButton.addEventListener('click', nextQuestion);
   const isCorrect = checkAnswer(currentQuestion.selected, currentQuestion.correct);
-  if (isCorrect) {
+  if (isCorrect && quizData.isAnswered === false) {
     quizData.currentTotalScore += 1;
     evt.target.classList.add('correct-answer');
+    quizData.isAnswered = true;
   } else {
     evt.target.classList.add('wrong-answer');
     const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');

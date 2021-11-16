@@ -9,7 +9,7 @@ import { quizData } from '../data.js';
  * Create an Answer element
  */
 export const createAnswerElement = (answerText) => {
-  const answerElement = createDOMElement('li');
+  const answerElement = createDOMElement('li', { id: 'answer-ID' });
   answerElement.innerText = answerText;
   answerElement.addEventListener('click', selectedAnswer);
   return answerElement;
