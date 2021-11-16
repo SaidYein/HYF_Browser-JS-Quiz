@@ -23,6 +23,8 @@ export const createReferenceElement = (linkData) => {
 
   referenceLink.text = linkData.text;
   referenceLink.href = linkData.href;
+  referenceLink.setAttribute('target', '_blank');
+
   return referenceElement;
 };
 

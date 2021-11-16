@@ -24,7 +24,6 @@ export const createDOMElement = (tag, options) => {
   if (className != null) {
     element.className = className;
   }
-
   return element;
 };
 
