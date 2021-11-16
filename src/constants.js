@@ -16,3 +16,5 @@ export const SCORE_SPAN_ID = 'score-span';
 export const TIMER_SPAN_ID = 'timer-span';
 
 export const USER_NAME_ID = 'username-input';
+export const WELCOME_CONTAINER_ID = 'welcome-container';
+export const RESULT_CONTAINER_ID = 'result-container';

@@ -3,7 +3,8 @@
 import { QUIZ_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, getCardElements, getCurrentContent, getInactiveCardElements, getCardContent } from '../utils/DOMUtils.js';
 import { quizData, timerData, animationData } from '../data.js';
-import { nextQuestion } from '../listeners/questionListeners.js';
+import { nextQuestion, showResult } from '../listeners/questionListeners.js';
+import { createResultContainerElement } from '../views/questionViews.js'
 
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
@@ -57,6 +58,12 @@ export const deleteQuestionCard = () => {
     const nextItem = cardContent[nextCardContentNumber];
     currentContent = nextItem.classList.add("active");
   }
+  if (animationData.i == 9) {
+    const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+    nextQuestionButton.innerText = 'Show Result';
+    nextQuestionButton.removeEventListener('click', nextQuestion);
+    nextQuestionButton.addEventListener('click', showResult);
+  }
 };
 
 export const showCurrentScore = () => {
@@ -78,12 +85,33 @@ export function handleSelectedAnswer(evt) {
 
   clearInterval(timerData.counter);
   nextQuestionButton.addEventListener('click', nextQuestion);
-};
-
-export function handleQuestionResult() {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const isCorrect = checkAnswer(currentQuestion.selected, currentQuestion.correct);
   if (isCorrect) {
     quizData.currentTotalScore += 1;
+    evt.target.classList.add('correct-answer');
+  } else {
+    evt.target.classList.add('wrong-answer');
+    const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');
+    switch (currentQuestion.correct) {
+      case 'a':
+        allAnswerElement[0].classList.add('correct-answer');
+        break;
+      case 'b':
+        allAnswerElement[1].classList.add('correct-answer');
+        break;
+      case 'c':
+        allAnswerElement[2].classList.add('correct-answer');
+        break;
+      case 'd':
+        allAnswerElement[3].classList.add('correct-answer');
+        break;
+    }
   }
+};
+
+export const showQuizResult = () => {
+  clearQuizContainer();
+  const userInterfaceContainer = getDOMElement('user-interface');
+  const resultPage = createResultContainerElement();
+  userInterfaceContainer.appendChild(resultPage);
 };

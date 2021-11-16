@@ -1,6 +1,6 @@
 'use strict';
 
-import { NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID, TIMER_SPAN_ID } from '../constants.js';
+import { NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID, TIMER_SPAN_ID, RESULT_CONTAINER_ID } from '../constants.js';
 import { nextQuestion, selectedAnswer } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
@@ -127,6 +127,30 @@ export const createQuestionElement = () => {
   previousCard.appendChild(progressContainer);
 
   return outerCardContainer;
+};
+
+// Create Result Container
+export const createResultContainerElement = () => {
+  const resultContainer = createDOMElement('div', { id: RESULT_CONTAINER_ID });
+
+  const congratsMessage = createDOMElement('h2', { className: 'congrats-message' });
+  const scoreMessage = createDOMElement('h3', { className: 'score-message' });
+  const totalScore = createDOMElement('h1', { className: 'total-score' });
+
+  totalScore.innerText = quizData.currentTotalScore;
+  if (parseInt(totalScore) >= 7) {
+    congratsMessage.innerText = 'Well Done!'
+  } else {
+    congratsMessage.innerText = 'Keep Learning & Try Again!'
+  }
+  scoreMessage.innerText = 'Your Score is';
+
+
+  resultContainer.appendChild(congratsMessage);
+  resultContainer.appendChild(scoreMessage);
+  resultContainer.appendChild(totalScore);
+
+  return resultContainer;
 };
 
 /**
