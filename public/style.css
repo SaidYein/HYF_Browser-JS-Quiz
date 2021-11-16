@@ -34,6 +34,17 @@ input {
   left: 52%;
 }
 
+.welcome-message {
+  position: absolute;
+  top: -15%;
+  left: 35%;
+}
+
+.teams-name {
+  position: absolute;
+  top: -5%;
+  left: 40%;
+}
 .centered {
   position: fixed;
   top: 20%;
@@ -56,7 +67,7 @@ input {
   height: 400px;
   width: 100%;
   position: absolute;
-  top: 70px;
+  top: 120px;
   left: -300px;
 }
 
