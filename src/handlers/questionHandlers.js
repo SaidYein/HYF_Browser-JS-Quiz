@@ -13,22 +13,22 @@ export const incrementQuestionIndex = () => {
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const timeCount = document.querySelector('.timer .timer_sec');
+  const timeCount = document.querySelector('.current-timer');
   let time = currentQuestion.time;
-  
+
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
-    time > 0 ? time -- : time = 0;
+    time > 0 ? time-- : time = 0;
     timeCount.textContent = time;
     // when the timer is 0, the correct answer assigned. 
-    if(time === 0) {
+    if (time === 0) {
       currentQuestion.selected = currentQuestion.correct;
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter);
     }
   }
   timerData.counter = setInterval(timerCountdown, 1000)
-  
+
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
 };
@@ -83,7 +83,7 @@ export function handleSelectedAnswer(evt) {
 
   currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
 
-  clearInterval(timerData.counter)
+  clearInterval(timerData.counter);
   nextQuestionButton.addEventListener('click', nextQuestion);
   const isCorrect = checkAnswer(currentQuestion.selected, currentQuestion.correct);
   if (isCorrect) {
