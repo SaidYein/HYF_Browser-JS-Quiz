@@ -23,6 +23,7 @@ export const showCurrentQuestion = () => {
     // when the timer is 0, the correct answer assigned. 
     if (time === 0) {
       showCorrectAnswer();
+      nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter);
     }
@@ -92,6 +93,9 @@ export function handleSelectedAnswer(evt) {
     quizData.currentTotalScore += 1;
     evt.target.classList.add('correct-answer');
     quizData.isAnswered = true;
+  }
+  if (isCorrect && quizData.isAnswered) {
+    evt.target.classList.add('correct-answer');
   } else {
     evt.target.classList.add('wrong-answer');
     showCorrectAnswer();
@@ -101,11 +105,13 @@ export function handleSelectedAnswer(evt) {
 export const showQuizResult = () => {
   clearQuizContainer();
   const userInterfaceContainer = getDOMElement('user-interface');
+  userInterfaceContainer.style.animation = 'none';
   const resultPage = createResultContainerElement();
   userInterfaceContainer.appendChild(resultPage);
 };
 
 export const showCorrectAnswer = () => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');
   switch (currentQuestion.correct) {
     case 'a':

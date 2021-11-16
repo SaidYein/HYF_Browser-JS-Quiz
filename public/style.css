@@ -1,5 +1,6 @@
-body{
+body {
   background-color:black;
+  color: white;
   height: 97vh;
   animation: neonYellow 2s ease-in-out infinite alternate;
 }
@@ -29,6 +30,7 @@ li {
   transform: none;
   top:15%;
   left:15%;
+  animation: neon 2s ease-in-out infinite alternate;
 }
 input {
   background-color: rgba(255,255,255,0.05);
@@ -42,24 +44,31 @@ input {
   font-size: larger;
   font-weight: bold;
 }
-.start-quiz {
-  top: 45%;
-  left: 52%;
-}
-
 .welcome-message {
   position: absolute;
-  top: -15%;
+  top: -18%;
   left: 35%;
+}
+.start-quiz {
+  top: 45%;
+  left: 48%;
 }
 
 .teams-name {
   position: absolute;
-  top: -5%;
-  left: 40%;
+  left: 35%;
+  margin-top: 5px;
 }
 
 #quiz-container {
+  position: fixed;
+  top: 25%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered {
   position: fixed;
   top: 20%;
   left: 50%;
@@ -73,11 +82,9 @@ input {
   overflow: auto;
 }
 
-.quiz-status span {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
-  animation: neon 2s ease-in-out infinite alternate;
+.quiz-status {
+  display: flex;
+  justify-content: space-evenly;
 }
 @keyframes neon {
   from {
@@ -90,18 +97,30 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
   }
 }
 .current-score {
-  margin-left: -850px;
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  margin-left: 60px;
   color: white;
   font-weight: bolder;
+  animation: neon 2s ease-in-out infinite alternate;
 }
+.current-timer {
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  margin-left: 580px;
+  color: white;
+  animation: neon 2s ease-in-out infinite alternate;
+} 
 
 .inner-container {
   min-width: 800px;
   height: 400px;
   width: 100%;
   position: absolute;
-  top: 120px;
-  left: -300px;
+  top: 80px;
+  left: -50px;
 }
 
 .card {
@@ -162,9 +181,39 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   transition: ease-in-out 1s;
 }
 
+.answers-list {
+  display: grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-gap: 10px;
+  align-items: center;
+}
+.answers-list li {
+  margin: 10px 50px;
+  padding: 5px;
+  border: 2px solid #ff9100;
+  border-radius: 50px;
+}
+.answers-list li:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+.answers-list li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+.answers-list li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.answers-list li:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
 .reference-container {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 30px;
 }
 .current-reference {
   text-decoration: none;
@@ -182,11 +231,11 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
 @keyframes neonGreen {
   from {
     box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #b6ff00,
-    inset 0 0 70px #b6ff00, 0 0 80px #b6ff00, 0 0 100px #b6ff00, 0 0 150px #b6ff00;
+    inset 0 0 30px #b6ff00, 0 0 40px #b6ff00, 0 0 60px #b6ff00, 0 0 110px #b6ff00;
   }
   to {
     box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #b6ff00,
-    inset 0 0 35px #b6ff00, 0 0 40px #b6ff00, 0 0 50px #b6ff00, 0 0 75px #b6ff00;
+    inset 0 0 15px #b6ff00, 0 0 20px #b6ff00, 0 0 30px #b6ff00, 0 0 55px #b6ff00;
   }
 }
 
@@ -196,11 +245,11 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
 @keyframes neonRed {
   from {
     box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ff1177,
-    inset 0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177
+    inset 0 0 30px #ff1177, 0 0 40px #ff1177, 0 0 60px #ff1177, 0 0 110px #ff1177
   }
   to {
     box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ff1177,
-    inset 0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+    inset 0 0 15px #ff1177, 0 0 20px #ff1177, 0 0 30px #ff1177, 0 0 55px #ff1177;
   }
 }
 
@@ -225,8 +274,8 @@ button {
   width: 120px;
   height: 120px;
   border: none;
-  margin-left: 420px;
-  margin-top: 155px;
+  margin-left: 500px;
+  margin-top: 180px;
   background-color: #FF10F0;
   color: white;
   font-size: large;
@@ -237,7 +286,6 @@ button {
   transition: transform .3s;
   animation: neonPink 2s ease-in-out infinite alternate;
 }
-
 @keyframes neonPink {
   from {
 box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #FF10F0,
@@ -253,52 +301,11 @@ button:hover {
   background-color: #b40fa9;
 }
 
-#user-interface {
+#result-container {
   width:90%;
   position: fixed;
   top: 50%;
   left: 50%;
-}
-#result-container {
-  transform: translate(-50%, -50%);
-  text-align: center;
-  animation: neonBlue 2s ease-in-out infinite alternate;
-  color: white;
-  padding: 10px;
-}
-.quiz-status {
-display: flex;
-justify-content: space-evenly;
-}
-.current-score {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
-  color: white;
-  font-weight: bolder;
-}
-.current-timer {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
-  margin-left: 330px;
-  color: white;
-  padding: 10px;
-}
-
-.congrats-message {
-  font-family: Monoton;
-  font-size: 7rem;
-  color: #ff00de;
-}
-
-#user-interface {
-  width:90%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-}
-#result-container {
   transform: translate(-50%, -50%);
   text-align: center;
   animation: neonBlue 2s ease-in-out infinite alternate;

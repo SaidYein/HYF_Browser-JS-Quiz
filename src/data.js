@@ -24,6 +24,7 @@ export const quizData = {
         a: 'constant, let, variable',
         b: 'var, const, let, function',
         c: 'var, let, const',
+        d: 'None of the above',
       },
       correct: 'c',
       selected: null,
@@ -100,13 +101,12 @@ export const quizData = {
       ],
     },
     {
-      text: `What is the correct JavaScript syntax to change the content of the HTML element below?\n
-      <p id="demo">This is a demonstration.</p>`,
+      text: `How to insert a comment that has more than one line?`,
       answers: {
-        a: 'document.getElementById("demo").innerHTML = "Hello World!";',
-        b: '#demo.innerHTML = "Hello World!";',
-        c: 'document.getElement("p").innerHTML = "Hello World!";',
-        d: 'document.getElementByName("p").innerHTML = "Hello World!";',
+        a: '/*This is a comment */',
+        b: '<!--This is a comment-->',
+        c: '//This is a comment//',
+        d: 'Both a & c',
       },
       correct: 'a',
       selected: null,
@@ -185,7 +185,8 @@ export const quizData = {
       answers: {
         a: '<script name="xxx.js">',
         b: '<script href="xxx.js">',
-        c: '<script src="xxx.js">'
+        c: '<script src="xxx.js">',
+        d: 'Both a & c',
       },
       correct: 'c',
       selected: null,

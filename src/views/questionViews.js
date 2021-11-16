@@ -85,7 +85,7 @@ export const createQuestionElement = () => {
     title.innerText = quizData.questions[i].text;
     cardContent.appendChild(title);
 
-    const answerContainer = createDOMElement('ol');
+    const answerContainer = createDOMElement('ol', { className: 'answers-list' });
 
     for (const answerKey in quizData.questions[i].answers) {
       const answer = createAnswerElement(quizData.questions[i].answers[answerKey]);
@@ -133,12 +133,12 @@ export const createQuestionElement = () => {
 export const createResultContainerElement = () => {
   const resultContainer = createDOMElement('div', { id: RESULT_CONTAINER_ID });
 
-  const congratsMessage = createDOMElement('h2', { className: 'congrats-message' });
+  let congratsMessage = createDOMElement('h2', { className: 'congrats-message' });
   const scoreMessage = createDOMElement('h3', { className: 'score-message' });
   const totalScore = createDOMElement('h1', { className: 'total-score' });
 
   totalScore.innerText = quizData.currentTotalScore;
-  if (parseInt(totalScore) >= 7) {
+  if (totalScore >= '7') {
     congratsMessage.innerText = 'Well Done!'
   } else {
     congratsMessage.innerText = 'Keep Learning & Try Again!'
