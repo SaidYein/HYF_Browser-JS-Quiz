@@ -1,11 +1,24 @@
 body{
   background-color:black;
+  height: 97vh;
+  animation: neonYellow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonYellow {
+  from {
+box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ffdd1b,
+inset 0 0 70px #ffdd1b, 0 0 80px #ffdd1b, 0 0 100px #ffdd1b, 0 0 150px #ffdd1b;
+  }
+  to {
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ffdd1b,
+    inset 0 0 35px #ffdd1b, 0 0 40px #ffdd1b, 0 0 50px #ffdd1b, 0 0 75px #ffdd1b;
+  }
 }
 
 li {
   list-style-type: none;
 }
-.centered {
+#quiz-container {
   position: fixed;
   top: 20%;
   left: 50%;
@@ -19,15 +32,34 @@ li {
   overflow: auto;
 }
 
-.outer-container {
-  margin: 50px auto;
+.quiz-status span {
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  animation: neon 2s ease-in-out infinite alternate;
 }
+@keyframes neon {
+  from {
+    box-shadow: inset 0 0 6px #fff, inset 0 0 12px #fff, 0 0 18px #fff, inset 0 0 40px #228dff,
+inset 0 0 50px #228dff, 0 0 60px #228dff, 0 0 80px #228dff, 0 0 130px #228dff;
+  }
+  to {
+    box-shadow: inset 0 0 3px #fff, inset 0 0 6px #fff, 0 0 9px #fff, inset 0 0 20px #228dff,
+inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
+  }
+}
+.current-score {
+  margin-left: -850px;
+  color: white;
+  font-weight: bolder;
+}
+
 .inner-container {
   min-width: 800px;
   height: 400px;
   width: 100%;
   position: absolute;
-  top: 30px;
+  top: 75px;
   left: -520px;
 }
 
@@ -48,7 +80,7 @@ li {
   padding: 0;
   box-shadow: none;
   background-color: rgba(0,0,0,0.75);
-  animation: neon 2s ease-in-out infinite alternate;
+  animation: neonBlue 2s ease-in-out infinite alternate;
 }
 .card2,.card4,.card6,.card8,.card10 {
   background-color: #1F51FF;
@@ -73,7 +105,7 @@ li {
   visibility: visible;
 }
 
-@keyframes neon {
+@keyframes neonBlue {
   from {
     box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #228dff,
 inset 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
@@ -101,6 +133,34 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 20px;
   font-size: medium;
   font-weight: 900;
+}
+
+.correct-answer {
+  animation: neonGreen 2s ease-in-out infinite alternate;
+}
+@keyframes neonGreen {
+  from {
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #b6ff00,
+    inset 0 0 70px #b6ff00, 0 0 80px #b6ff00, 0 0 100px #b6ff00, 0 0 150px #b6ff00;
+  }
+  to {
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #b6ff00,
+    inset 0 0 35px #b6ff00, 0 0 40px #b6ff00, 0 0 50px #b6ff00, 0 0 75px #b6ff00;
+  }
+}
+
+.wrong-answer {
+  animation: neonRed 2s ease-in-out infinite alternate;
+}
+@keyframes neonRed {
+  from {
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ff1177,
+    inset 0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177
+  }
+  to {
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ff1177,
+    inset 0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
 }
 
 .progress-container {
@@ -133,23 +193,62 @@ button {
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
-  transition: transform .3s; /* Animation */
+  transition: transform .3s;
+  animation: neonPink 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPink {
+  from {
+box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #FF10F0,
+inset 0 0 60px #FF10F0, 0 0 70px #FF10F0, 0 0 90px #FF10F0, 0 0 120px #FF10F0;
+  }
+  to {
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #FF10F0,
+    inset 0 0 30px #FF10F0, 0 0 35px #FF10F0, 0 0 45px #FF10F0, 0 0 60px #FF10F0;
+  }
 }
 button:hover {
   transform: scale(1.2);
   background-color: #b40fa9;
 }
 
-.quiz-status span {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
+#user-interface {
+  width:90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
-.current-score {
-  padding: .7em 1em;
-  background-color: #00898b;
-  border-radius: 50%;
-  margin-left: -850px;
+#result-container {
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: neonBlue 2s ease-in-out infinite alternate;
   color: white;
-  font-weight: bolder;
+  padding: 10px;
+}
+
+.congrats-message {
+  font-family: Monoton;
+  font-size: 7rem;
+  color: #ff00de;
+}
+
+.score-message {
+  font-family: Iceland;
+  font-size: 5rem;
+  color: #228dff;
+}
+
+.total-score {
+  font-size: 7rem;
+  animation: neonRedText 2s ease-in-out infinite alternate;
+}
+@keyframes neonRedText {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
+      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
+      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
 }

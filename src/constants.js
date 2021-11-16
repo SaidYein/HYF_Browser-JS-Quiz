@@ -13,3 +13,7 @@ export const QUIZ_CONTAINER_ID = 'quiz-container';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
 
 export const SCORE_SPAN_ID = 'score-span';
+export const TIMER_SPAN_ID = 'timer-span';
+
+export const WELCOME_CONTAINER_ID = 'welcome-container';
+export const RESULT_CONTAINER_ID = 'result-container';
