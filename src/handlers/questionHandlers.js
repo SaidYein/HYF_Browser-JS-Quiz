@@ -22,15 +22,16 @@ export const showCurrentQuestion = () => {
     timeCount.textContent = time;
     // when the timer is 0, the correct answer assigned. 
     if (time === 0) {
-      currentQuestion.selected = currentQuestion.correct;
+      showCorrectAnswer();
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter);
     }
   }
-  timerData.counter = setInterval(timerCountdown, 1000)
+  timerData.counter = setInterval(timerCountdown, 1000);
 
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
+  quizData.isAnswered = false;
 };
 
 export const deleteQuestionCard = () => {
@@ -86,26 +87,14 @@ export function handleSelectedAnswer(evt) {
   clearInterval(timerData.counter);
   nextQuestionButton.addEventListener('click', nextQuestion);
   const isCorrect = checkAnswer(currentQuestion.selected, currentQuestion.correct);
-  if (isCorrect) {
+
+  if (isCorrect && quizData.isAnswered === false) {
     quizData.currentTotalScore += 1;
     evt.target.classList.add('correct-answer');
+    quizData.isAnswered = true;
   } else {
     evt.target.classList.add('wrong-answer');
-    const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');
-    switch (currentQuestion.correct) {
-      case 'a':
-        allAnswerElement[0].classList.add('correct-answer');
-        break;
-      case 'b':
-        allAnswerElement[1].classList.add('correct-answer');
-        break;
-      case 'c':
-        allAnswerElement[2].classList.add('correct-answer');
-        break;
-      case 'd':
-        allAnswerElement[3].classList.add('correct-answer');
-        break;
-    }
+    showCorrectAnswer();
   }
 };
 
@@ -114,4 +103,22 @@ export const showQuizResult = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
   const resultPage = createResultContainerElement();
   userInterfaceContainer.appendChild(resultPage);
+};
+
+export const showCorrectAnswer = () => {
+  const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');
+  switch (currentQuestion.correct) {
+    case 'a':
+      allAnswerElement[0].classList.add('correct-answer');
+      break;
+    case 'b':
+      allAnswerElement[1].classList.add('correct-answer');
+      break;
+    case 'c':
+      allAnswerElement[2].classList.add('correct-answer');
+      break;
+    case 'd':
+      allAnswerElement[3].classList.add('correct-answer');
+      break;
+  }
 };

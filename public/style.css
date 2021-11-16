@@ -58,6 +58,7 @@ input {
   top: -5%;
   left: 40%;
 }
+
 #quiz-container {
   position: fixed;
   top: 20%;
@@ -252,6 +253,19 @@ button:hover {
   background-color: #b40fa9;
 }
 
+#user-interface {
+  width:90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+#result-container {
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: neonBlue 2s ease-in-out infinite alternate;
+  color: white;
+  padding: 10px;
+}
 .quiz-status {
 display: flex;
 justify-content: space-evenly;
@@ -270,6 +284,12 @@ justify-content: space-evenly;
   margin-left: 330px;
   color: white;
   padding: 10px;
+}
+
+.congrats-message {
+  font-family: Monoton;
+  font-size: 7rem;
+  color: #ff00de;
 }
 
 #user-interface {
