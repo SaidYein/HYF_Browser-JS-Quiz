@@ -1,9 +1,17 @@
 'use strict';
 
-import { NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID, RESULT_CONTAINER_ID } from '../constants.js';
-import { selectedAnswer } from '../listeners/questionListeners.js';
+import { NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID, TIMER_SPAN_ID, RESULT_CONTAINER_ID } from '../constants.js';
+import { nextQuestion, selectedAnswer } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
+
+// Create the Starting Page
+export const createStartTheQuizButton = () => {
+  const startButton = createDOMElement('button', { className: 'start-quiz' });
+  startButton.innerText = 'Start The Quiz';
+
+  return startButton;
+};
 
 /**
  * Create an Answer element
@@ -28,12 +36,18 @@ export const createReferenceElement = (linkData) => {
   return referenceElement;
 };
 
-// Create UpToDate Score Element
-export const createScoreElement = (currentTotalScore) => {
+// Create Status-Bar Element
+export const createStatusBarElement = (currentTotalScore, timer) => {
   const quizStatusBar = createDOMElement('div', { className: 'quiz-status' });
   const currentScore = createDOMElement('span', { id: SCORE_SPAN_ID, className: 'current-score' });
+  const currentTimer = createDOMElement('span', { id: TIMER_SPAN_ID, className: 'current-timer' });
+
   quizStatusBar.appendChild(currentScore);
+  quizStatusBar.appendChild(currentTimer);
+
   currentScore.innerText = currentTotalScore;
+  currentTimer.innerText = timer;
+
   return quizStatusBar;
 };
 

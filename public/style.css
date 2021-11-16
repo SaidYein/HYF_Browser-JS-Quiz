@@ -18,6 +18,47 @@ inset 0 0 70px #ffdd1b, 0 0 80px #ffdd1b, 0 0 100px #ffdd1b, 0 0 150px #ffdd1b;
 li {
   list-style-type: none;
 }
+
+#user-interface {
+  background-image: url(../bgQuiz.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 70%;
+  height: 70vh;
+  transform: none;
+  top:15%;
+  left:15%;
+}
+input {
+  background-color: rgba(255,255,255,0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid white;
+  color: #F2F2F2;
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  font-size: larger;
+  font-weight: bold;
+}
+.start-quiz {
+  top: 45%;
+  left: 52%;
+}
+
+.welcome-message {
+  position: absolute;
+  top: -15%;
+  left: 35%;
+}
+
+.teams-name {
+  position: absolute;
+  top: -5%;
+  left: 40%;
+}
+
 #quiz-container {
   position: fixed;
   top: 20%;
@@ -59,8 +100,8 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
   height: 400px;
   width: 100%;
   position: absolute;
-  top: 75px;
-  left: -520px;
+  top: 120px;
+  left: -300px;
 }
 
 .card {
@@ -184,7 +225,7 @@ button {
   width: 120px;
   height: 120px;
   border: none;
-  margin-left: 360px;
+  margin-left: 420px;
   margin-top: 155px;
   background-color: #FF10F0;
   color: white;
@@ -210,6 +251,45 @@ inset 0 0 60px #FF10F0, 0 0 70px #FF10F0, 0 0 90px #FF10F0, 0 0 120px #FF10F0;
 button:hover {
   transform: scale(1.2);
   background-color: #b40fa9;
+}
+
+#user-interface {
+  width:90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+#result-container {
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: neonBlue 2s ease-in-out infinite alternate;
+  color: white;
+  padding: 10px;
+}
+.quiz-status {
+display: flex;
+justify-content: space-evenly;
+}
+.current-score {
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  color: white;
+  font-weight: bolder;
+}
+.current-timer {
+  padding: .7em 1em;
+  background-color: #1F51FF;
+  border-radius: 50%;
+  margin-left: 330px;
+  color: white;
+  padding: 10px;
+}
+
+.congrats-message {
+  font-family: Monoton;
+  font-size: 7rem;
+  color: #ff00de;
 }
 
 #user-interface {
