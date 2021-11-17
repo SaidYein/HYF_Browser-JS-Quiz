@@ -32,6 +32,11 @@ li {
   left:15%;
   animation: neon 2s ease-in-out infinite alternate;
 }
+.welcome-message {
+  position: absolute;
+  top: -18%;
+  left: 35%;
+}
 input {
   background-color: rgba(255,255,255,0.05);
   padding: 10px 16px;
@@ -43,11 +48,6 @@ input {
   left: 70%;
   font-size: larger;
   font-weight: bold;
-}
-.welcome-message {
-  position: absolute;
-  top: -18%;
-  left: 35%;
 }
 .start-quiz {
   top: 45%;
@@ -117,7 +117,6 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
 .inner-container {
   min-width: 800px;
   height: 400px;
-  width: 100%;
   position: absolute;
   top: 80px;
   left: -50px;
@@ -163,6 +162,7 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
   margin: 0 auto;
   opacity: 1;
   visibility: visible;
+  transition: ease-in-out 1s;
 }
 
 @keyframes neonBlue {
@@ -174,11 +174,6 @@ inset 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
     box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #228dff,
 inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   }
-}
-
-.active > .card-content {
-  opacity: 1;
-  transition: ease-in-out 1s;
 }
 
 .answers-list {
@@ -337,5 +332,89 @@ button:hover {
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
       0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  body {
+    height: 95vh;
+  }
+  #user-interface {
+    background-size: contain;
+    width: 80%;
+    top: 5%;
+    left:10%;
+    height: 85vh;
+  }
+  .welcome-message {
+    top: 10%;
+    left: 5%;
+    padding: 0 10px;
+  }
+  input {
+    width: 180px;
+    top: 80%;
+    left: 10%;
+    font-size: medium;
+  }
+  .start-quiz {
+    width: 90px;
+    height: 90px;
+    padding: 5px;
+    top: 50%;
+    margin-left: 20%;
+  }
+  .start-quiz:hover {
+    transform: scale(1.1);
+  }
+
+  #quiz-container {
+    top: 15%;
+  }
+  .current-score {
+    margin-left: 50px;
+  }
+  .current-timer {
+    margin-left: 300px;
+  }
+
+  .teams-name {
+    left: 30%;
+  }
+
+  .inner-container {
+    min-width: 500px;
+    left: -15%;
+  }
+  .card {
+    width: 308px;
+    height: 360px;
+  }
+  .card-content h1 {
+    font-size: 1.5em;
+  }
+  .answers-list {
+    margin-top: 10%;
+    margin-left: -15%;
+    grid-row-gap: 20px ;
+  }
+  .answers-list li {
+    margin: 2% 5%;
+    padding: 10px;
+  }
+  .reference-container {
+    margin-top: 30px;
+    margin-left: -35px;
+  }
+
+  .progress-container {
+    margin-top: 380px;
+  }
+
+  #next-question-button {
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: 520px;
   }
 }

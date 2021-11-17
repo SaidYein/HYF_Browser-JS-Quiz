@@ -53,6 +53,13 @@ export const deleteQuestionCard = () => {
   animationData.layer -= 1;
 
   card[9 - animationData.i].style.animation = 'neon 2s ease-in-out infinite alternate';
+  const progressBar = document.querySelector('.progress-container');
+  let progressBarMarginTop = progressBar.offsetTop;
+  let progressBarMarginLeft = progressBar.offsetLeft;
+  progressBarMarginTop -= 8;
+  progressBarMarginLeft += 8;
+  progressBar.style.marginTop = `${progressBarMarginTop}px`;
+  progressBar.style.marginLeft = `${progressBarMarginLeft}px`;
 
   if (animationData.i < cardContent.length) {
     document.getElementById("step").style.width = animationData.step + "%";
