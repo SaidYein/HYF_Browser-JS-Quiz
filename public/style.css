@@ -339,6 +339,11 @@ button:hover {
   body {
     height: 95vh;
   }
+  .scrollable {
+    height: auto;
+    max-height: 90vh;
+    overflow: auto;
+  }
   #user-interface {
     background-size: contain;
     width: 80%;
@@ -363,6 +368,7 @@ button:hover {
     padding: 5px;
     top: 50%;
     margin-left: 20%;
+    margin-top: 30%;
   }
   .start-quiz:hover {
     transform: scale(1.1);
