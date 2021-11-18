@@ -14,7 +14,7 @@ export const clearDOMElement = (DOMElement) => {
  *  id - the id of the element
  */
 export const createDOMElement = (tag, options) => {
-  const { id, className } = options || {};
+  const { id, className, content } = options || {};
 
   const element = document.createElement(tag);
 
@@ -23,6 +23,9 @@ export const createDOMElement = (tag, options) => {
   }
   if (className != null) {
     element.className = className;
+  }
+  if (content != null) {
+    element.innerText = content;
   }
   return element;
 };

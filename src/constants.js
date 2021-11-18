@@ -19,3 +19,4 @@ export const USER_NAME_ID = 'username-input';
 export const WELCOME_CONTAINER_ID = 'welcome-container';
 export const RESULT_CONTAINER_ID = 'result-container';
 
+export const START_BUTTON_ID = 'start-quiz-btn';

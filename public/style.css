@@ -1,74 +1,198 @@
-body {
-  background-color:black;
-  color: white;
-  height: 97vh;
-  animation: neonYellow 2s ease-in-out infinite alternate;
+@font-face {
+  font-family: 'Beon Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Beon Medium'), url('fonts/beon-webfont.woff') format('woff');
 }
-
-@keyframes neonYellow {
+@font-face {
+  font-family: 'Beon Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Beon Medium'), url('fonts/Beon.woff') format('woff');
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Vampiro One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/vampiroone/v13/gokqH6DoDl5yXvJytFsdLnquuPl4og.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Vampiro One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/vampiroone/v13/gokqH6DoDl5yXvJytFsdLnqguPk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Budmo Jiggler';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jiggler'), url('fonts/budmo\ jiggler.woff') format('woff');
+}
+@font-face {
+  font-family: 'Budmo Jigglish';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jigglish'), url('fonts/budmo\ jigglish.woff') format('woff');
+}
+@font-face {
+  font-family: 'Text Me One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/textmeone/v10/i7dOIFdlayuLUvgoFvHQFVZbYFc.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@keyframes neon {
   from {
-box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ffdd1b,
-inset 0 0 70px #ffdd1b, 0 0 80px #ffdd1b, 0 0 100px #ffdd1b, 0 0 150px #ffdd1b;
+    box-shadow: inset 0 0 6px #ffffff7a, inset 0 0 12px #ffffff7a, 0 0 18px #ffffff7a,
+      inset 0 0 40px #228dff7a, inset 0 0 50px #228dff7a, 0 0 60px #228dff7a,
+      0 0 80px #228dff7a, 0 0 130px #228dff7a;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ffdd1b,
-    inset 0 0 35px #ffdd1b, 0 0 40px #ffdd1b, 0 0 50px #ffdd1b, 0 0 75px #ffdd1b;
+    box-shadow: inset 0 0 3px #ffffff7a, inset 0 0 6px #ffffff7a, 0 0 9px #ffffff7a,
+      inset 0 0 20px #228dff7a, inset 0 0 25px #228dff7a, 0 0 30px #228dff7a,
+      0 0 45px #228dff7a, 0 0 65px #228dff7a;
   }
 }
+@keyframes neonYellow {
+  from {
+    box-shadow: inset 0 0 1px #ffffff7a, inset 0 0 2px #ffffff7a, 0 0 3px #ffffff7a,
+      inset 0 0 1px #ffdd1b86, inset 0 0 2px #ffdd1b86, 0 0 3px #ffdd1b86,
+      0 0 4px #ffdd1b86;
+  }
+  to {
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
+      inset 0 0 20px #ffdd1b86, inset 0 0 20px #ffdd1b86, 0 0 30px #ffdd1b86,
+      0 0 0px #ffdd1b86;
+  }
+}
+@keyframes neon-text {
+  from {
+    text-shadow: 0 0 10px #ffffff7a, 0 0 20px #ffffff7a, 0 0 30px #ffffff7a, 0 0 40px #ff00dd7a,
+      0 0 70px #ff00dd7a, 0 0 80px #ff00dd7a, 0 0 100px #ff00dd7a, 0 0 150px #ff00dd7a;
+  }
+  to {
+    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a, 0 0 20px #ff00dd7a,
+      0 0 35px #ff00dd7a, 0 0 40px #ff00dd7a, 0 0 50px #ff00dd7a, 0 0 75px #ff00dd7a;
+  }
+}
+:root {
+  font-family: 'Text Me One';
+  font-size: 18px;
+  line-height: 2;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+  color: white;
+  /* animation: neonYellow 1s ease-in-out infinite alternate; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.column {
+  flex-direction: column;
+}
 li {
   list-style-type: none;
 }
 
 #user-interface {
+  margin: 0 auto;
+  width: 1100px;
+  height: 900px;
+}
+#start-page {
+  width: 800px;
+  height: 500px;
   background-image: url(../bgQuiz.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 70%;
-  height: 70vh;
-  transform: none;
-  top:15%;
-  left:15%;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   animation: neon 2s ease-in-out infinite alternate;
+  transform: none;
 }
 .welcome-message {
-  position: absolute;
-  top: -18%;
-  left: 35%;
+  font-size: 2.3rem;
+  font-family: 'Vampiro One';
+  font-weight: 300;
+  margin-bottom: 40px;
+  animation: neon-text 0.5s ease-in-out infinite alternate;
 }
-input {
-  background-color: rgba(255,255,255,0.05);
+#username-input{
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 10px 16px;
   border-radius: 20px;
   border: 2px solid white;
-  color: #F2F2F2;
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  font-size: larger;
+  color: #f2f2f2;
+  font-size: 1rem;
   font-weight: bold;
+  width: 200px;
+  margin: 85px 20px;
+  animation: neonYellow 2s ease-in-out infinite alternate;
 }
-.start-quiz {
-  top: 45%;
-  left: 48%;
+#start-quiz-btn {
+  margin: 75px 40px;
+  font-family: 'Vampiro One';
+  font-weight: 300;
+  transition: transform 0.3s;
+  animation: neonPink 2s ease-in-out infinite alternate;
 }
 
+button {
+  width: 130px;
+  height: 50px;
+  border: none;
+  background-color: #ff00dd7a;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  
+}
+
+
+
+
 .teams-name {
-  position: absolute;
+  /* position: absolute;
   left: 35%;
-  margin-top: 5px;
+  margin-top: 5px; */
 }
 
 #quiz-container {
-  position: fixed;
+  /* position: fixed;
   top: 25%;
   left: 45%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: center; */
 }
 
-.centered {
+/* .centered {
   position: fixed;
   top: 20%;
   left: 50%;
@@ -80,25 +204,16 @@ input {
   height: auto;
   max-height: 80vh;
   overflow: auto;
-}
+} */
 
 .quiz-status {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: space-evenly; */
 }
-@keyframes neon {
-  from {
-    box-shadow: inset 0 0 6px #fff, inset 0 0 12px #fff, 0 0 18px #fff, inset 0 0 40px #228dff,
-inset 0 0 50px #228dff, 0 0 60px #228dff, 0 0 80px #228dff, 0 0 130px #228dff;
-  }
-  to {
-    box-shadow: inset 0 0 3px #fff, inset 0 0 6px #fff, 0 0 9px #fff, inset 0 0 20px #228dff,
-inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
-  }
-}
+
 .current-score {
-  padding: .7em 1em;
-  background-color: #1F51FF;
+  padding: 0.7em 1em;
+  background-color: #1f51ff;
   border-radius: 50%;
   margin-left: 60px;
   color: white;
@@ -106,13 +221,13 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
   animation: neon 2s ease-in-out infinite alternate;
 }
 .current-timer {
-  padding: .7em 1em;
-  background-color: #1F51FF;
+  padding: 0.7em 1em;
+  background-color: #1f51ff;
   border-radius: 50%;
   margin-left: 580px;
   color: white;
   animation: neon 2s ease-in-out infinite alternate;
-} 
+}
 
 .inner-container {
   min-width: 800px;
@@ -131,21 +246,28 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
   border-radius: 5px;
   height: 320px;
   box-sizing: border-box;
-  transition: .3s ease;
-  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.35);
 }
 .card1 {
   border-radius: 5px 5px 0 0;
   padding: 0;
   box-shadow: none;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0, 0, 0, 0.75);
   animation: neonBlue 2s ease-in-out infinite alternate;
 }
-.card2,.card4,.card6,.card8,.card10 {
-  background-color: #1F51FF;
+.card2,
+.card4,
+.card6,
+.card8,
+.card10 {
+  background-color: #1f51ff;
 }
-.card3,.card5,.card7,.card9 {
-  background-color: #FF10F0;
+.card3,
+.card5,
+.card7,
+.card9 {
+  background-color: #ff10f0;
 }
 
 .card-content {
@@ -167,18 +289,20 @@ inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
 
 @keyframes neonBlue {
   from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #228dff,
-inset 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff,
+      inset 0 0 40px #228dff, inset 0 0 70px #228dff, 0 0 80px #228dff,
+      0 0 100px #228dff, 0 0 150px #228dff;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #228dff,
-inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff,
+      inset 0 0 20px #228dff, inset 0 0 35px #228dff, 0 0 40px #228dff,
+      0 0 50px #228dff, 0 0 75px #228dff;
   }
 }
 
 .answers-list {
   display: grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   align-items: center;
 }
@@ -225,12 +349,14 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
 }
 @keyframes neonGreen {
   from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #b6ff00,
-    inset 0 0 30px #b6ff00, 0 0 40px #b6ff00, 0 0 60px #b6ff00, 0 0 110px #b6ff00;
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff,
+      inset 0 0 40px #b6ff00, inset 0 0 30px #b6ff00, 0 0 40px #b6ff00,
+      0 0 60px #b6ff00, 0 0 110px #b6ff00;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #b6ff00,
-    inset 0 0 15px #b6ff00, 0 0 20px #b6ff00, 0 0 30px #b6ff00, 0 0 55px #b6ff00;
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff,
+      inset 0 0 20px #b6ff00, inset 0 0 15px #b6ff00, 0 0 20px #b6ff00,
+      0 0 30px #b6ff00, 0 0 55px #b6ff00;
   }
 }
 
@@ -239,17 +365,19 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
 }
 @keyframes neonRed {
   from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ff1177,
-    inset 0 0 30px #ff1177, 0 0 40px #ff1177, 0 0 60px #ff1177, 0 0 110px #ff1177
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff,
+      inset 0 0 40px #ff1177, inset 0 0 30px #ff1177, 0 0 40px #ff1177,
+      0 0 60px #ff1177, 0 0 110px #ff1177;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ff1177,
-    inset 0 0 15px #ff1177, 0 0 20px #ff1177, 0 0 30px #ff1177, 0 0 55px #ff1177;
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff,
+      inset 0 0 20px #ff1177, inset 0 0 15px #ff1177, 0 0 20px #ff1177,
+      0 0 30px #ff1177, 0 0 55px #ff1177;
   }
 }
 
 .progress-container {
-  background-color: #FF10F0;
+  background-color: #ff10f0;
   height: 8px;
   position: relative;
   margin-top: 330px;
@@ -264,31 +392,17 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 0 0 0 5px;
 }
 
-button {
-  position: fixed;
-  width: 120px;
-  height: 120px;
-  border: none;
-  margin-left: 500px;
-  margin-top: 180px;
-  background-color: #FF10F0;
-  color: white;
-  font-size: large;
-  font-weight: bold;
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: transform .3s;
-  animation: neonPink 2s ease-in-out infinite alternate;
-}
+
 @keyframes neonPink {
   from {
-box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #FF10F0,
-inset 0 0 60px #FF10F0, 0 0 70px #FF10F0, 0 0 90px #FF10F0, 0 0 120px #FF10F0;
+    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff,
+      inset 0 0 40px #ff10f0, inset 0 0 60px #ff10f0, 0 0 70px #ff10f0,
+      0 0 90px #ff10f0, 0 0 120px #ff10f0;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #FF10F0,
-    inset 0 0 30px #FF10F0, 0 0 35px #FF10F0, 0 0 45px #FF10F0, 0 0 60px #FF10F0;
+    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff,
+      inset 0 0 20px #ff10f0, inset 0 0 30px #ff10f0, 0 0 35px #ff10f0,
+      0 0 45px #ff10f0, 0 0 60px #ff10f0;
   }
 }
 button:hover {
@@ -297,7 +411,7 @@ button:hover {
 }
 
 #result-container {
-  width:90%;
+  width: 90%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -348,7 +462,7 @@ button:hover {
     background-size: contain;
     width: 80%;
     top: 5%;
-    left:10%;
+    left: 10%;
     height: 85vh;
   }
   .welcome-message {
@@ -402,7 +516,7 @@ button:hover {
   .answers-list {
     margin-top: 10%;
     margin-left: -15%;
-    grid-row-gap: 20px ;
+    grid-row-gap: 20px;
   }
   .answers-list li {
     margin: 2% 5%;
