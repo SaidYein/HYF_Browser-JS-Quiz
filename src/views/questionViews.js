@@ -6,7 +6,7 @@ import {
   TIMER_SPAN_ID,
   RESULT_CONTAINER_ID,
   USER_NAME_ID,
-  START_BUTTON_ID
+  START_BUTTON_ID,
 } from '../constants.js';
 import {
   nextQuestion,
@@ -19,32 +19,12 @@ import { quizData } from '../data.js';
  * Create the starting page elements
  */
 
- export const createStartTheQuizButton = () => {
+export const createStartTheQuizButton = () => {
   const startButton = createDOMElement('button', {
     id: START_BUTTON_ID,
     content: 'Start',
   });
   return startButton;
-};
-
-export const createStartPage = () => {
-  const userInterface = getDOMElement('user-interface');
-  userInterface.className = "flex column";
-  const welcomeMessage = createDOMElement('h1', {
-    className: 'welcome-message',
-    content: 'Are You Up for a Challenge??',
-  });
-  userInterface.appendChild(welcomeMessage);
-
-  const startPageContainer = createDOMElement('div', { id: 'start-page', className: 'column' });
-
-  const userNameElement = createDOMElement('input', { id: USER_NAME_ID });
-  userNameElement.setAttribute('type', 'text');
-  userNameElement.placeholder = 'Type Your Name here..';
-  startPageContainer.appendChild(userNameElement);
-  const startTheQuizButton = createStartTheQuizButton();
-  startPageContainer.appendChild(startTheQuizButton);
-  userInterface.appendChild(startPageContainer);
 };
 
 /**
@@ -184,6 +164,8 @@ export const createQuestionElement = () => {
   return outerCardContainer;
 };
 
+
+
 // Create Result Container
 export const createResultContainerElement = () => {
   const resultContainer = createDOMElement('div', { id: RESULT_CONTAINER_ID });
@@ -218,4 +200,12 @@ export const createNextQuestionButtonElement = () => {
     content: 'Next Question',
   });
   return buttonElement;
+};
+
+/**
+ * Current question
+ */
+
+export const getCurrentQuestion = () => {
+  return quizData.questions[quizData.currentQuestionIndex];
 };

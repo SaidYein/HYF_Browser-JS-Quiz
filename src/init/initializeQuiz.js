@@ -5,6 +5,7 @@ import {
   QUIZ_CONTAINER_ID,
   USER_NAME_ID,
   START_BUTTON_ID,
+  USER_INTERFACE_ID
 } from '../constants.js';
 import {
   showCurrentQuestion,
@@ -21,15 +22,14 @@ import {
   createNextQuestionButtonElement,
   createQuestionElement,
   createStatusBarElement,
-  createStartPage,
+  getCurrentQuestion,
 } from '../views/questionViews.js';
 import { quizData } from '../data.js';
-
+import { createStartPage } from '../views/startPageView.js';
 const initializeQuiz = () => {
   // quizData.questions.sort();
   quizData.currentQuestionIndex = 0;
   showTheStartPage();
-  
 };
 
 const startTheQuiz = () => {
@@ -49,23 +49,12 @@ const showTheStartPage = () => {
     quizData.userName = userName;
     startTheQuiz();
   });
-  // userInterface.appendChild(startPage);
-  // const startTheQuiz = () => {
-  //   setupQuizHTML();
-  //   showCurrentQuestion();
-  //   showCurrentScore();
-  //   clearUserInterface();
-  // //   // userInterfaceContainer.style.backgroundImage = 'none';
-  // }
-  // const startButton = getDOMElement('start-quiz');
-  // startButton.addEventListener('click', startTheQuiz);
-  // return userInterfaceContainer;
 };
 
 const setupQuizHTML = () => {
-  const userInterfaceContainer = getDOMElement('user-interface');
+  const userInterfaceContainer = getDOMElement(USER_INTERFACE_ID);
   const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  const currentQuestion = getCurrentQuestion();
   const teamsName = createDOMElement('h2', { className: 'teams-name' });
   // const userName = document.getElementById(USER_NAME_ID).value;
   // quizData.userName = userName;

@@ -6,7 +6,7 @@ import {
   deleteQuestionCard,
   showCurrentScore,
   handleSelectedAnswer,
-  showQuizResult
+  showQuizResult,
 } from '../handlers/questionHandlers.js';
 
 export const nextQuestion = () => {
@@ -22,4 +22,4 @@ export const selectedAnswer = (e) => {
 
 export const showResult = () => {
   showQuizResult();
-}
+};
