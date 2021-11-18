@@ -91,48 +91,50 @@
 }
 @keyframes neonGreen {
   from {
-    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
-      inset 0 0 40px #00ff0086, inset 0 0 30px #00ff0086, 0 0 40px #00ff0086,
-      0 0 60px #00ff0086, 0 0 110px #00ff0086;
+    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a,
+      0 0 30px #ffffff7a, inset 0 0 40px #00ff0086, inset 0 0 30px #00ff0086,
+      0 0 40px #00ff0086, 0 0 60px #00ff0086, 0 0 110px #00ff0086;
   }
   to {
-    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
-      inset 0 0 20px #00ff0086, inset 0 0 15px #00ff0086, 0 0 20px #00ff0086,
-      0 0 30px #00ff0086, 0 0 55px #00ff0086;
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a,
+      0 0 15px #ffffff7a, inset 0 0 20px #00ff0086, inset 0 0 15px #00ff0086,
+      0 0 20px #00ff0086, 0 0 30px #00ff0086, 0 0 55px #00ff0086;
   }
 }
 @keyframes neonPink {
   from {
-    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
-      inset 0 0 40px #ff00dd7a, inset 0 0 60px #ff00dd7a, 0 0 70px #ff00dd7a,
-      0 0 90px #ff00dd7a, 0 0 120px #ff00dd7a;
+    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a,
+      0 0 30px #ffffff7a, inset 0 0 40px #ff00dd7a, inset 0 0 60px #ff00dd7a,
+      0 0 70px #ff00dd7a, 0 0 90px #ff00dd7a, 0 0 120px #ff00dd7a;
   }
   to {
-    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
-      inset 0 0 20px #ff00dd7a, inset 0 0 30px #ff00dd7a, 0 0 35px #ff00dd7a,
-      0 0 45px #ff00dd7a, 0 0 60px #ff00dd7a;
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a,
+      0 0 15px #ffffff7a, inset 0 0 20px #ff00dd7a, inset 0 0 30px #ff00dd7a,
+      0 0 35px #ff00dd7a, 0 0 45px #ff00dd7a, 0 0 60px #ff00dd7a;
   }
 }
 @keyframes neonRed {
   from {
-    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
-      inset 0 0 40px #ff114d88, inset 0 0 30px #ff114d88, 0 0 40px #ff114d88,
-      0 0 60px #ff114d88, 0 0 110px #ff114d88;
+    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a,
+      0 0 30px #ffffff7a, inset 0 0 40px #ff114d88, inset 0 0 30px #ff114d88,
+      0 0 40px #ff114d88, 0 0 60px #ff114d88, 0 0 110px #ff114d88;
   }
   to {
-    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
-      inset 0 0 20px #ff114d88, inset 0 0 15px #ff114d88, 0 0 20px #ff114d88,
-      0 0 30px #ff114d88, 0 0 55px #ff114d88;
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a,
+      0 0 15px #ffffff7a, inset 0 0 20px #ff114d88, inset 0 0 15px #ff114d88,
+      0 0 20px #ff114d88, 0 0 30px #ff114d88, 0 0 55px #ff114d88;
   }
 }
 @keyframes neonRedText {
   from {
-    text-shadow: 0 0 10px #ffffff7a, 0 0 20px #ffffff7a, 0 0 30px #ffffff7a, 0 0 40px #ff114d88,
-      0 0 70px #ff114d88, 0 0 80px #ff114d88, 0 0 100px #ff114d88, 0 0 150px #ff114d88;
+    text-shadow: 0 0 10px #ffffff7a, 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
+      0 0 40px #ff114d88, 0 0 70px #ff114d88, 0 0 80px #ff114d88,
+      0 0 100px #ff114d88, 0 0 150px #ff114d88;
   }
   to {
-    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a, 0 0 20px #ff114d88,
-      0 0 35px #ff114d88, 0 0 40px #ff114d88, 0 0 50px #ff114d88, 0 0 75px #ff114d88;
+    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
+      0 0 20px #ff114d88, 0 0 35px #ff114d88, 0 0 40px #ff114d88,
+      0 0 50px #ff114d88, 0 0 75px #ff114d88;
   }
 }
 :root {
@@ -207,7 +209,6 @@ li {
 }
 #start-quiz-btn {
   margin: 75px 40px;
-  
 }
 
 button {
@@ -302,15 +303,17 @@ button:hover {
 .card6,
 .card8,
 .card10 {
-  background-color: #228dffc2;
+  background-color: #5d91c9c2;
 }
 .card3,
 .card5,
 .card7,
 .card9 {
-  background-color: #ff00ddaf;
+  background-color: #d36bc5af;
 }
-
+.card .active {
+  background-color: rgba(0, 0, 0, 0.507);
+}
 .card-content {
   opacity: 0;
   width: 100%;
@@ -320,7 +323,6 @@ button:hover {
   visibility: hidden;
 }
 .active {
-  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -328,8 +330,6 @@ button:hover {
   visibility: visible;
   transition: ease-in-out 1s;
 }
-
-
 
 .answers-list {
   display: grid;
@@ -342,7 +342,7 @@ button:hover {
   padding: 5px 20px;
   border: 1px solid #ff9100;
   border-radius: 50px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 .answers-list li:first-child {
   grid-column: 1;
@@ -393,7 +393,6 @@ button:hover {
   animation: neonRed 2s ease-in-out infinite alternate;
 }
 
-
 .progress-container {
   background-color: #ff10f0;
   height: 8px;
@@ -407,9 +406,6 @@ button:hover {
   width: 0%;
   border-radius: 0 0 0 5px;
 }
-
-
-
 
 #result-container {
   width: 90%;
@@ -439,7 +435,6 @@ button:hover {
   font-size: 7rem;
   animation: neonRedText 2s ease-in-out infinite alternate;
 }
-
 
 @media screen and (max-width: 620px) {
   body {
@@ -514,19 +509,8 @@ button:hover {
     margin: 2% 5%;
     padding: 10px;
   }
-  .reference-container {
-    margin-top: 30px;
-    margin-left: -35px;
-  }
-
   .progress-container {
     margin-top: 380px;
   }
 
-  #next-question-button {
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-    margin-top: 520px;
-  }
 }
