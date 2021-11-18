@@ -1,6 +1,8 @@
 'use strict';
 
 import {
+  QUIZ_CONTAINER_ID,
+  QUESTION_CONTAINER_ID,
   NEXT_QUESTION_BUTTON_ID,
   SCORE_SPAN_ID,
   TIMER_SPAN_ID,
@@ -16,12 +18,13 @@ import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
 /**
- * Create the starting page elements
+ * Create an Answer section
  */
 
-/**
- * Create an Answer element
- */
+const createAnswersContainer = () => {
+  const answerContainer = createDOMElement('ol', { className: 'answers-list' });
+  return answerContainer;
+};
 export const createAnswerElement = (answerText) => {
   //- li should have class not id
   const answerElement = createDOMElement('li', {
@@ -31,52 +34,64 @@ export const createAnswerElement = (answerText) => {
   answerElement.addEventListener('click', selectedAnswer);
   return answerElement;
 };
-
-// Create a Reference Element
-export const createReferenceElement = (linkData) => {
-  const referenceElement = createDOMElement('li');
-  const referenceLink = createDOMElement('a', {
-    className: 'current-reference',
+/**
+ * Create references elements
+ */
+const createReferencesContainer = () => {
+  const referencesContainer = createDOMElement('div', {
+    id: 'references-container',
   });
-  referenceElement.appendChild(referenceLink);
-
-  referenceLink.text = linkData.text;
-  referenceLink.href = linkData.href;
-  referenceLink.setAttribute('target', '_blank');
-
-  return referenceElement;
+  const learnMore = createDOMElement('p', {
+    className: 'learn',
+    content: 'Learn more: ',
+  });
+  learnMore.innerText = 'Learn more: ';
+  referencesContainer.appendChild(learnMore);
+  return referencesContainer;
 };
-
-// Create Status-Bar Element
-export const createStatusBarElement = (currentTotalScore, timer) => {
-  const quizStatusBar = createDOMElement('div', { className: 'quiz-status' });
+const createLinkElement = (linkData) => {
+  const linkElement = createDOMElement('a', {
+    className: 'reference',
+    content: linkData,
+  });
+  linkElement.innerText = linkData;
+  return linkElement;
+};
+/**
+ * Create status side bar
+ */
+const createStatusBarElement = () => {
+  const quizStatusBar = createDOMElement('div', {
+    className: 'quiz-status column',
+  });
   const currentScore = createDOMElement('span', {
     id: SCORE_SPAN_ID,
-    className: 'current-score',
+    className: 'current-score status',
   });
   const currentTimer = createDOMElement('span', {
     id: TIMER_SPAN_ID,
-    className: 'current-timer',
+    className: 'current-timer status',
   });
+  const nextQuestionButton = createNextQuestionButtonElement();
 
   quizStatusBar.appendChild(currentScore);
   quizStatusBar.appendChild(currentTimer);
-
-  currentScore.innerText = currentTotalScore;
-  currentTimer.innerText = timer;
-
+  quizStatusBar.appendChild(nextQuestionButton);
   return quizStatusBar;
 };
+export const getCurrentQuestion = () => {
+  return quizData.questions[quizData.currentQuestionIndex];
+};
 
-// Create Stackable Question Cards
+/**
+ * Create question element with all contents
+ */
 export const createQuestionElement = () => {
-  const outerCardContainer = createDOMElement('div', {
-    className: 'outer-container',
+  const questionsContainer = createDOMElement('div', {
+    id: QUESTION_CONTAINER_ID,
+    className: 'column',
   });
-  const innerCardContainer = createDOMElement('div', {
-    className: 'inner-container',
-  });
-  outerCardContainer.appendChild(innerCardContainer);
+  const stackCards = createDOMElement('div', { id: 'stack-cards' });
 
   // Create the Questions Card, Give the proper className & Translate
   const numberOfCard = quizData.questions.length;
@@ -85,13 +100,14 @@ export const createQuestionElement = () => {
     let newCard;
     let cardContent;
     const cardNumber = i + 1;
+    const question = quizData.questions[i];
 
     newCard = createDOMElement('div', {
       className: `card card${cardNumber}`,
     });
 
     cardContent = createDOMElement('div', {
-      className: 'card-content',
+      className: 'card-content column',
     });
 
     if (i !== 0) {
@@ -102,41 +118,38 @@ export const createQuestionElement = () => {
     }
 
     // Creating Question Info
-    const title = createDOMElement('h1');
-    title.innerText = quizData.questions[i].text;
+    const title = createDOMElement('h1', {
+      className: 'title',
+      content: question.text,
+    });
     cardContent.appendChild(title);
 
-    const answerContainer = createDOMElement('ol', {
-      className: 'answers-list',
-    });
+    const answerContainer = createAnswersContainer();
 
-    for (const answerKey in quizData.questions[i].answers) {
-      const answer = createAnswerElement(
-        quizData.questions[i].answers[answerKey]
-      );
+    for (const answerKey in question.answers) {
+      const answer = createAnswerElement(question.answers[answerKey]);
       answerContainer.appendChild(answer);
     }
 
     cardContent.appendChild(answerContainer);
 
     // Adding The References
-    const referenceContainer = createDOMElement('ul', {
-      className: 'reference-container',
+    const referencesContainer = createReferencesContainer();
+    question.links.forEach((link) => {
+      const theLink = createLinkElement(link.text);
+      theLink.href = link.href;
+      theLink.target = '_blank';
+      referencesContainer.appendChild(theLink);
     });
 
-    quizData.questions[i].links.forEach((questionLink) => {
-      const link = createReferenceElement(questionLink);
-      referenceContainer.appendChild(link);
-    });
-
-    cardContent.appendChild(referenceContainer);
+    cardContent.appendChild(referencesContainer);
 
     newCard.appendChild(cardContent);
 
     if (previousCard) {
       previousCard.appendChild(newCard);
     } else {
-      innerCardContainer.appendChild(newCard);
+      stackCards.appendChild(newCard);
     }
 
     previousCard = newCard;
@@ -150,14 +163,23 @@ export const createQuestionElement = () => {
   });
 
   progressContainer.appendChild(step);
+  questionsContainer.appendChild(stackCards);
+  questionsContainer.appendChild(progressContainer);
 
-  previousCard.appendChild(progressContainer);
-
-  return outerCardContainer;
+  return questionsContainer;
 };
 
-
-
+export const createQuizContainer = () => {
+  const quizContainer = createDOMElement('div', {
+    id: QUIZ_CONTAINER_ID,
+    className: '',
+  });
+  const questionElement = createQuestionElement();
+  const statusBar = createStatusBarElement();
+  quizContainer.appendChild(questionElement);
+  quizContainer.appendChild(statusBar);
+  return quizContainer;
+};
 // Create Result Container
 export const createResultContainerElement = () => {
   const resultContainer = createDOMElement('div', { id: RESULT_CONTAINER_ID });
@@ -192,12 +214,4 @@ export const createNextQuestionButtonElement = () => {
     content: 'Next Question',
   });
   return buttonElement;
-};
-
-/**
- * Current question
- */
-
-export const getCurrentQuestion = () => {
-  return quizData.questions[quizData.currentQuestionIndex];
 };

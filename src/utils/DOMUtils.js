@@ -38,21 +38,28 @@ export const getDOMElement = (id) => {
 };
 
 /*
- *Get a key from objects. Used for getting the option when the answer selected
+ * Get a key from objects. Used for getting the option when the answer selected
  */
 export const getKeyByValue = (object, value) => {
   return Object.keys(object).find((key) => object[key] === value);
 };
 
-// Checking if the User Answer is Correct or Not
+/**
+ * Checking if user's answer is correct
+ */
 export const checkAnswer = (selectedAnswer, correctAnswer) =>
   selectedAnswer === correctAnswer;
 
-// Stackable Card Parameters
+/**
+ * Stackable Card Parameters
+ */
 export const getCardElements = () => document.getElementsByClassName('card');
+
 export const getInactiveCardElements = () =>
   document.getElementsByClassName('inactive');
+
 export const getCurrentContent = () =>
   document.getElementsByClassName('card-content active');
+
 export const getCardContent = () =>
   document.getElementsByClassName('card-content');

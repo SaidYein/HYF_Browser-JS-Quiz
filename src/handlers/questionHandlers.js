@@ -35,10 +35,11 @@ export const createCountdownElement = () => {
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
     time > 0 ? time-- : (time = 0);
-    timeCount.textContent = time;
+    timeCount.textContent = `Time left: ${time}`;
     // when the timer is 0, the correct answer assigned.
     if (time === 0) {
       showCorrectAnswer();
+      const nextQuestionButton = document.querySelector('next-question-button')
       nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter);
@@ -97,7 +98,7 @@ export const deleteQuestionCard = () => {
 export const showCurrentScore = () => {
   const currentScore = quizData.currentTotalScore;
   const scoreSpan = getDOMElement(SCORE_SPAN_ID);
-  scoreSpan.innerText = currentScore;
+  scoreSpan.innerText = `Score: ${currentScore}`;
 };
 
 export const clearQuizContainer = () => {

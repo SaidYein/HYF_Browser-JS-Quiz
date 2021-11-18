@@ -14,7 +14,7 @@
 export const quizData = {
   currentQuestionIndex: 0,
   currentTotalScore: 0,
-  userName: '',
+  userName: 'Ghost',
   isAnswered: false,
   // the questions in the quiz
   questions: [
