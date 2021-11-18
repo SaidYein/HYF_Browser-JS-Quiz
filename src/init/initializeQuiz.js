@@ -18,7 +18,6 @@ import {
   getDOMElement,
 } from '../utils/DOMUtils.js';
 import {
-  createStartTheQuizButton,
   createNextQuestionButtonElement,
   createQuestionElement,
   createStatusBarElement,
@@ -26,6 +25,8 @@ import {
 } from '../views/questionViews.js';
 import { quizData } from '../data.js';
 import { createStartPage } from '../views/startPageView.js';
+
+
 const initializeQuiz = () => {
   // quizData.questions.sort();
   quizData.currentQuestionIndex = 0;

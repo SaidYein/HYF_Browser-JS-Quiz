@@ -19,14 +19,6 @@ import { quizData } from '../data.js';
  * Create the starting page elements
  */
 
-export const createStartTheQuizButton = () => {
-  const startButton = createDOMElement('button', {
-    id: START_BUTTON_ID,
-    content: 'Start',
-  });
-  return startButton;
-};
-
 /**
  * Create an Answer element
  */
