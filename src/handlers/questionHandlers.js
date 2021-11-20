@@ -4,7 +4,8 @@ import {
   QUIZ_CONTAINER_ID,
   NEXT_QUESTION_BUTTON_ID,
   SCORE_SPAN_ID,
-  USER_INTERFACE_ID
+  USER_INTERFACE_ID,
+  USER_NAME_ID,
 } from '../constants.js';
 import {
   clearDOMElement,
@@ -15,40 +16,65 @@ import {
   getCurrentContent,
   getInactiveCardElements,
   getCardContent,
-  
 } from '../utils/DOMUtils.js';
 import { quizData, timerData, animationData } from '../data.js';
 import { nextQuestion, showResult } from '../listeners/questionListeners.js';
 import {
   createResultContainerElement,
   getCurrentQuestion,
-  } from '../views/questionViews.js';
+} from '../views/questionViews.js';
 
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex += 1;
 };
-export const createCountdownElement = () => {
+// export const createCountdownElement = () => {
+//   const currentQuestion = getCurrentQuestion();
+//   const timeCount = document.querySelector('.current-timer');
+//   let time = currentQuestion.time;
+
+//   const timerCountdown = () => {
+//     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
+//     time > 0 ? time-- : (time = 0);
+//     timeCount.textContent = `Time left: ${time}`;
+//     // when the timer is 0, the correct answer assigned.
+//     if (time === 0) {
+//       showCorrectAnswer();
+//       const nextQuestionButton = document.querySelector(NEXT_QUESTION_BUTTON_ID)
+//       nextQuestionButton.addEventListener('click', nextQuestion);
+//       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
+//       clearInterval(timerData.counter);
+//     }
+//   };
+//   timerData.counter = setInterval(timerCountdown, 1000);
+// }
+// export const showCurrentQuestion = () => {
+//   createCountdownElement();
+//   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+//   nextQuestionButton.removeEventListener('click', nextQuestion);
+//   quizData.isAnswered = false;
+// };
+
+export const showCurrentQuestion = () => {
   const currentQuestion = getCurrentQuestion();
+
   const timeCount = document.querySelector('.current-timer');
   let time = currentQuestion.time;
 
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
     time > 0 ? time-- : (time = 0);
+    // timeCount.textContent = time;
     timeCount.textContent = `Time left: ${time}`;
     // when the timer is 0, the correct answer assigned.
     if (time === 0) {
       showCorrectAnswer();
-      const nextQuestionButton = document.querySelector('next-question-button')
       nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(timerData.counter);
     }
   };
   timerData.counter = setInterval(timerCountdown, 1000);
-}
-export const showCurrentQuestion = () => {
-  createCountdownElement();
+
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
   quizData.isAnswered = false;
@@ -137,7 +163,7 @@ export const handleSelectedAnswer = (evt) => {
     evt.target.classList.add('wrong-answer');
     showCorrectAnswer();
   }
-}
+};
 
 export const showQuizResult = () => {
   clearQuizContainer();

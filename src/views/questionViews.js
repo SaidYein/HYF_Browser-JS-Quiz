@@ -7,6 +7,7 @@ import {
   SCORE_SPAN_ID,
   TIMER_SPAN_ID,
   RESULT_CONTAINER_ID,
+  USER_INTERFACE_ID,
   USER_NAME_ID,
   START_BUTTON_ID,
 } from '../constants.js';
@@ -192,7 +193,7 @@ export const createResultContainerElement = () => {
 
   totalScore.innerText = quizData.currentTotalScore;
   if (totalScore >= '7') {
-    congratsMessage.innerText = 'Well Done!';
+    congratsMessage.innerText = `Well Done ${quizData.userName} !!`;
   } else {
     congratsMessage.innerText = 'Keep Learning & Try Again!';
   }
@@ -214,4 +215,19 @@ export const createNextQuestionButtonElement = () => {
     content: 'Next Question',
   });
   return buttonElement;
+};
+
+/**
+ * Creates quiz HTML element
+ */
+
+export const createQuizHTML = () => {
+  const userInterfaceContainer = getDOMElement(USER_INTERFACE_ID);
+  const teamsName = createDOMElement('h2', { className: 'teams-name' });
+
+  teamsName.innerText = `ICONIC HORDE vs. ${quizData.userName}`;
+  userInterfaceContainer.appendChild(teamsName);
+  const quizContainer = createQuizContainer();
+  console.log(quizContainer);
+  userInterfaceContainer.appendChild(quizContainer);
 };

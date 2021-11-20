@@ -7,7 +7,16 @@ import {
   showCurrentScore,
   handleSelectedAnswer,
   showQuizResult,
+  clearUserInterface,
 } from '../handlers/questionHandlers.js';
+import { createQuizHTML } from '../views/questionViews.js';
+
+export const startTheQuiz = () => {
+  clearUserInterface();
+  createQuizHTML();
+  showCurrentQuestion();
+  showCurrentScore();
+};
 
 export const nextQuestion = () => {
   incrementQuestionIndex();
