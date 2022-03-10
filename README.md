@@ -1,6 +1,7 @@
 # Iconic Horde's Browser Quiz
+<image src="./public/cover.png"></image>
 
-The project [preview](https://chrisfayad.github.io/HYF_Browser-JS-Quiz/)
+The project [demo](https://chrisfayad.github.io/HYF_Browser-JS-Quiz/)
 
 # Getting Started
 
