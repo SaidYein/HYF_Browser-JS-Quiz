@@ -14,7 +14,7 @@ export const clearDOMElement = (DOMElement) => {
  *  id - the id of the element
  */
 export const createDOMElement = (tag, options) => {
-  const { id, className } = options || {};
+  const { id, className, content } = options || {};
 
   const element = document.createElement(tag);
 
@@ -23,6 +23,9 @@ export const createDOMElement = (tag, options) => {
   }
   if (className != null) {
     element.className = className;
+  }
+  if (content != null) {
+    element.innerText = content;
   }
   return element;
 };
@@ -35,17 +38,28 @@ export const getDOMElement = (id) => {
 };
 
 /*
-*Get a key from objects. Used for getting the option when the answer selected
-*/
+ * Get a key from objects. Used for getting the option when the answer selected
+ */
 export const getKeyByValue = (object, value) => {
-  return Object.keys(object).find(key => object[key] === value);
-}
+  return Object.keys(object).find((key) => object[key] === value);
+};
 
-// Checking if the User Answer is Correct or Not
-export const checkAnswer = (selectedAnswer, correctAnswer) => selectedAnswer === correctAnswer;
+/**
+ * Checking if user's answer is correct
+ */
+export const checkAnswer = (selectedAnswer, correctAnswer) =>
+  selectedAnswer === correctAnswer;
 
-// Stackable Card Parameters
+/**
+ * Stackable Card Parameters
+ */
 export const getCardElements = () => document.getElementsByClassName('card');
-export const getInactiveCardElements = () => document.getElementsByClassName('inactive');
-export const getCurrentContent = () => document.getElementsByClassName('card-content active');
-export const getCardContent = () => document.getElementsByClassName("card-content");
+
+export const getInactiveCardElements = () =>
+  document.getElementsByClassName('inactive');
+
+export const getCurrentContent = () =>
+  document.getElementsByClassName('card-content active');
+
+export const getCardContent = () =>
+  document.getElementsByClassName('card-content');

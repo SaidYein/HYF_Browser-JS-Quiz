@@ -1,192 +1,356 @@
-body {
-  background-color:black;
-  color: white;
-  height: 97vh;
-  animation: neonYellow 2s ease-in-out infinite alternate;
+@font-face {
+  font-family: 'Beon Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Beon Medium'), url('fonts/Beon.woff') format('woff');
 }
-
-@keyframes neonYellow {
+@font-face {
+  font-family: 'Vampiro One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/vampiroone/v13/gokqH6DoDl5yXvJytFsdLnqguPk.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Budmo Jiggler';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jiggler'), url('fonts/budmo\ jiggler.woff') format('woff');
+}
+@font-face {
+  font-family: 'Budmo Jigglish';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Budmo Jigglish'), url('fonts/budmo\ jigglish.woff') format('woff');
+}
+@font-face {
+  font-family: 'Text Me One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/textmeone/v10/i7dOIFdlayuLUvgoFvHQFVZbYFc.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@keyframes neon-blue {
   from {
-box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ffdd1b,
-inset 0 0 70px #ffdd1b, 0 0 80px #ffdd1b, 0 0 100px #ffdd1b, 0 0 150px #ffdd1b;
+    box-shadow: inset 0 0 6px #ffffff7a, inset 0 0 12px #ffffff7a,
+      0 0 18px #ffffff7a, inset 0 0 40px #228dff7a, inset 0 0 50px #228dff7a,
+      0 0 60px #228dff7a, 0 0 80px #228dff7a, 0 0 130px #228dff7a;
   }
   to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ffdd1b,
-    inset 0 0 35px #ffdd1b, 0 0 40px #ffdd1b, 0 0 50px #ffdd1b, 0 0 75px #ffdd1b;
+    box-shadow: inset 0 0 3px #ffffff7a, inset 0 0 6px #ffffff7a,
+      0 0 9px #ffffff7a, inset 0 0 20px #228dff7a, inset 0 0 25px #228dff7a,
+      0 0 30px #228dff7a, 0 0 45px #228dff7a, 0 0 65px #228dff7a;
   }
 }
 
+@keyframes neon-yellow {
+  from {
+    box-shadow: inset 0 0 1px #ffffff7a, inset 0 0 2px #ffffff7a,
+      0 0 3px #ffffff7a, inset 0 0 1px #ffdd1b86, inset 0 0 2px #ffdd1b86,
+      0 0 3px #ffdd1b86, 0 0 4px #ffdd1b86;
+  }
+  to {
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a,
+      0 0 15px #ffffff7a, inset 0 0 20px #ffdd1b86, inset 0 0 20px #ffdd1b86,
+      0 0 30px #ffdd1b86, 0 0 0px #ffdd1b86;
+  }
+}
+@keyframes neon-green {
+  from {
+    box-shadow: inset 0 0 0px #ffffff7a, inset 0 0 2px #ffffff7a,
+      0 0 4px #ffffff7a, inset 0 0 12px #00ff0086, inset 0 0 14px #00ff0086,
+      0 0 5px #00ff0086, 0 0 5px #00ff0086, 0 0 10px #00ff0086;
+  }
+  to {
+    box-shadow: inset 0 0 2px #ffffff7a, inset 0 0 5px #ffffff7a,
+      0 0 7px #ffffff7a, inset 0 0 15px #00ff0086, inset 0 0 20px #00ff0086,
+      0 0 10px #00ff0086, 0 0 15px #00ff0086, 0 0 20px #00ff0086;
+  }
+}
+@keyframes neon-red {
+  from {
+    box-shadow: inset 0 0 0px #ffffff7a, inset 0 0 2px #ffffff7a,
+      0 0 4px #ffffff7a, inset 0 0 12px #ff114d88, inset 0 0 14px #ff114d88,
+      0 0 5px #ff114d88, 0 0 5px #ff114d88, 0 0 10px #ff114d88;
+  }
+  to {
+    box-shadow: inset 0 0 2px #ffffff7a, inset 0 0 5px #ffffff7a,
+      0 0 7px #ffffff7a, inset 0 0 15px #ff114d88, inset 0 0 20px #ff114d88,
+      0 0 10px #ff114d88, 0 0 15px #ff114d88, 0 0 20px #ff114d88;
+  }
+}
+@keyframes neon-pink {
+  from {
+    box-shadow: inset 0 0 10px #ffffff7a, inset 0 0 20px #ffffff7a,
+      0 0 30px #ffffff7a, inset 0 0 40px #ff00dd7a, inset 0 0 60px #ff00dd7a,
+      0 0 70px #ff00dd7a, 0 0 90px #ff00dd7a, 0 0 120px #ff00dd7a;
+  }
+  to {
+    box-shadow: inset 0 0 5px #ffffff7a, inset 0 0 10px #ffffff7a,
+      0 0 15px #ffffff7a, inset 0 0 20px #ff00dd7a, inset 0 0 30px #ff00dd7a,
+      0 0 35px #ff00dd7a, 0 0 45px #ff00dd7a, 0 0 60px #ff00dd7a;
+  }
+}
+@keyframes neon-text-pink {
+  from {
+    text-shadow: 0 0 10px #ffffff7a, 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
+      0 0 40px #ff00dd7a, 0 0 70px #ff00dd7a, 0 0 80px #ff00dd7a,
+      0 0 100px #ff00dd7a, 0 0 150px #ff00dd7a;
+  }
+  to {
+    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
+      0 0 20px #ff00dd7a, 0 0 35px #ff00dd7a, 0 0 40px #ff00dd7a,
+      0 0 50px #ff00dd7a, 0 0 75px #ff00dd7a;
+  }
+}
+@keyframes neon-text-blue {
+  from {
+    text-shadow: 0 0 10px #ffffff7a, 0 0 20px #ffffff7a, 0 0 30px #ffffff7a,
+      0 0 40px #228dff7a, 0 0 70px #228dff7a, 0 0 80px #228dff7a,
+      0 0 100px #228dff7a, 0 0 150px #228dff7a;
+  }
+  to {
+    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
+      0 0 20px #228dff7a, 0 0 35px #228dff7a, 0 0 40px #228dff7a,
+      0 0 50px #228dff7a, 0 0 75px #228dff7a;
+  }
+}
+@keyframes neon-text-red-altered {
+  from {
+    text-shadow: 0 0 0px #ffffff7a;
+  }
+  to {
+    text-shadow: 0 0 5px #ffffff7a, 0 0 10px #ffffff7a, 0 0 15px #ffffff7a,
+      0 0 20px #ff114d88, 0 0 35px #ff114d88, 0 0 40px #ff114d88,
+      0 0 50px #ff114d88, 0 0 75px #ff114d88;
+  }
+}
+:root {
+  font-family: 'Text Me One';
+  font-size: 18px;
+  line-height: 2;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #0b0a35;
+  /* background: repeating-linear-gradient(
+      45deg,
+      #2b2b2b 0%,
+      #2b2b2b 10%,
+      #0b0a35 0%,
+      #0b0a35 50%
+    )
+    0 / 15px 15px; */
+  color: white;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.column {
+  flex-direction: column;
+}
 li {
   list-style-type: none;
 }
-
 #user-interface {
+  margin: 0 auto;
+  width: 1100px;
+  height: 900px;
+}
+#start-page {
   background-image: url(../bgQuiz.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 70%;
-  height: 70vh;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#result-page {
+  justify-content: space-evenly;
+  align-items: center;
+}
+#start-page,
+#result-page {
+  width: 800px;
+  height: 500px;
+  border-radius: 30px;
+  display: flex;
+  animation: neon-blue 2s ease-in-out infinite alternate;
   transform: none;
-  top:15%;
-  left:15%;
-  animation: neon 2s ease-in-out infinite alternate;
 }
 .welcome-message {
-  position: absolute;
-  top: -18%;
-  left: 35%;
+  font-size: 2.3rem;
+  font-family: 'Vampiro One';
+  font-weight: 300;
+  margin-bottom: 40px;
+  animation: neon-text-pink 0.5s ease-in-out infinite alternate;
 }
-input {
-  background-color: rgba(255,255,255,0.05);
+#username-input {
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 10px 16px;
   border-radius: 20px;
   border: 2px solid white;
-  color: #F2F2F2;
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  font-size: larger;
+  color: #f2f2f2;
+  font-size: 1rem;
   font-weight: bold;
+  width: 200px;
+  margin: 85px 20px;
+  animation: neon-yellow 2s ease-in-out infinite alternate;
 }
-.start-quiz {
-  top: 45%;
-  left: 48%;
+#start-quiz-btn {
+  margin: 75px 40px;
 }
 
-.teams-name {
-  position: absolute;
-  left: 35%;
-  margin-top: 5px;
+button {
+  width: 130px;
+  height: content-height;
+  padding: 5px 0;
+  border: none;
+  background-color: #ff00dd7a;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Vampiro One';
+  font-weight: 300;
+  transition: transform 0.3s;
+  animation: neon-pink 2s ease-in-out infinite alternate;
+}
+button:hover {
+  transform: scale(1.1);
+  background-color: #b40fa9;
 }
 
 #quiz-container {
-  position: fixed;
-  top: 25%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
-
-.centered {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+#question-container {
+  width: 90%;
+  height: 430px;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-
-.scrollable {
-  height: auto;
-  max-height: 80vh;
-  overflow: auto;
+#stack-cards {
+  position: absolute;
+  right: 0px;
+  margin: 30px 30px 0 0;
 }
-
+.teams-name {
+  font-family: 'Vampiro One';
+  margin: 0 150px 20px 0;
+  letter-spacing: 2px;
+  animation: neon-text-pink 0.5s ease-in-out infinite alternate;
+}
 .quiz-status {
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  margin: 0 30px;
 }
-@keyframes neon {
-  from {
-    box-shadow: inset 0 0 6px #fff, inset 0 0 12px #fff, 0 0 18px #fff, inset 0 0 40px #228dff,
-inset 0 0 50px #228dff, 0 0 60px #228dff, 0 0 80px #228dff, 0 0 130px #228dff;
-  }
-  to {
-    box-shadow: inset 0 0 3px #fff, inset 0 0 6px #fff, 0 0 9px #fff, inset 0 0 20px #228dff,
-inset 0 0 25px #228dff, 0 0 30px #228dff, 0 0 45px #228dff, 0 0 65px #228dff;
-  }
-}
-.current-score {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
-  margin-left: 60px;
+.status {
+  width: 130px;
+  height: content-height;
+  border: none;
+  background-color: #ff00dd7a;
   color: white;
-  font-weight: bolder;
-  animation: neon 2s ease-in-out infinite alternate;
-}
-.current-timer {
-  padding: .7em 1em;
-  background-color: #1F51FF;
-  border-radius: 50%;
-  margin-left: 580px;
-  color: white;
-  animation: neon 2s ease-in-out infinite alternate;
-} 
-
-.inner-container {
-  min-width: 800px;
-  height: 400px;
-  position: absolute;
-  top: 80px;
-  left: -50px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-align: center;
+  animation: neon-blue 2s ease-in-out infinite alternate;
 }
 
+.title {
+  max-width: 90%;
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
 .card {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 5px;
+  top: 5px;
   margin: 0 auto;
-  width: 720px;
+  width: 650px;
   border-radius: 5px;
   height: 320px;
   box-sizing: border-box;
-  transition: .3s ease;
-  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.35);
 }
 .card1 {
-  border-radius: 5px 5px 0 0;
   padding: 0;
   box-shadow: none;
-  background-color: rgba(0,0,0,0.75);
-  animation: neonBlue 2s ease-in-out infinite alternate;
+  background-color: rgba(0, 0, 0, 0.75);
+  animation: neon-blue 2s ease-in-out infinite alternate;
 }
-.card2,.card4,.card6,.card8,.card10 {
-  background-color: #1F51FF;
+.card2,
+.card4,
+.card6,
+.card8,
+.card10 {
+  background-color: #5d91c9c2;
 }
-.card3,.card5,.card7,.card9 {
-  background-color: #FF10F0;
+.card3,
+.card5,
+.card7,
+.card9 {
+  background-color: #d36bc5af;
 }
-
+.card .active {
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 5px;
+}
 .card-content {
-  position: absolute;
-  top: 5%;
   opacity: 0;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   color: white;
   visibility: hidden;
 }
 .active {
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   opacity: 1;
   visibility: visible;
   transition: ease-in-out 1s;
 }
 
-@keyframes neonBlue {
-  from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #228dff,
-inset 0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
-  }
-  to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #228dff,
-inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
-  }
-}
-
 .answers-list {
   display: grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   align-items: center;
 }
 .answers-list li {
-  margin: 10px 50px;
-  padding: 5px;
-  border: 2px solid #ff9100;
+  width: 200px;
+  margin: 10px;
+  padding: 5px 20px;
+  border: 1px solid #ff9100;
   border-radius: 50px;
+  font-size: 0.8rem;
 }
 .answers-list li:first-child {
   grid-column: 1;
@@ -204,151 +368,91 @@ inset 0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   grid-column: 2;
   grid-row: 2;
 }
-
-.reference-container {
+#references-container {
+  width: 90%;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 30px;
+  align-items: center;
+  font-family: 'Beon Medium';
+  font-size: 0.8rem;
 }
-.current-reference {
+.reference {
   text-decoration: none;
-  color: #ff9100;
-  background-color: white;
-  padding: 4px 8px;
+  color: #c5740a;
+  background-color: rgba(255, 255, 255, 0.664);
+  height: fit-content;
+  padding: 0 10px;
   border-radius: 20px;
-  font-size: medium;
-  font-weight: 900;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
-
+.reference:hover {
+  text-decoration: underline;
+}
 .correct-answer {
-  animation: neonGreen 2s ease-in-out infinite alternate;
+  animation: neon-green 2s ease-in-out infinite alternate;
 }
-@keyframes neonGreen {
-  from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #b6ff00,
-    inset 0 0 30px #b6ff00, 0 0 40px #b6ff00, 0 0 60px #b6ff00, 0 0 110px #b6ff00;
-  }
-  to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #b6ff00,
-    inset 0 0 15px #b6ff00, 0 0 20px #b6ff00, 0 0 30px #b6ff00, 0 0 55px #b6ff00;
-  }
+.learn {
+  margin-bottom: 15px;
 }
-
 .wrong-answer {
-  animation: neonRed 2s ease-in-out infinite alternate;
+  animation: neon-red 2s ease-in-out infinite alternate;
 }
-@keyframes neonRed {
-  from {
-    box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #ff1177,
-    inset 0 0 30px #ff1177, 0 0 40px #ff1177, 0 0 60px #ff1177, 0 0 110px #ff1177
-  }
-  to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #ff1177,
-    inset 0 0 15px #ff1177, 0 0 20px #ff1177, 0 0 30px #ff1177, 0 0 55px #ff1177;
-  }
-}
-
 .progress-container {
-  background-color: #FF10F0;
-  height: 8px;
-  position: relative;
-  margin-top: 330px;
-  left: 0;
-  width: 100%;
-  border-radius: 0 0 5px 5px;
+  background-color: #ff10f0;
+  /* height: 8px;
+  width: 90%;
+  margin-left: 10%;
+  border-radius: 0 0 5px 5px; */
+  height: 95%;
+  width: 8px;
+  margin: 5px;
+  border-radius: 5px;
 }
 #step {
   background-color: #770a70;
-  height: 8px;
+  /* height: 8px;
   width: 0%;
-  border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px; */
+  align-self: bottom;
+  height: 100%;
+  width: 8px;
+  border-radius: 5px;
 }
-
-button {
-  position: fixed;
-  width: 120px;
-  height: 120px;
-  border: none;
-  margin-left: 500px;
-  margin-top: 180px;
-  background-color: #FF10F0;
-  color: white;
-  font-size: large;
-  font-weight: bold;
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: transform .3s;
-  animation: neonPink 2s ease-in-out infinite alternate;
-}
-@keyframes neonPink {
-  from {
-box-shadow: inset 0 0 10px #fff, inset 0 0 20px #fff, 0 0 30px #fff, inset 0 0 40px #FF10F0,
-inset 0 0 60px #FF10F0, 0 0 70px #FF10F0, 0 0 90px #FF10F0, 0 0 120px #FF10F0;
-  }
-  to {
-    box-shadow: inset 0 0 5px #fff, inset 0 0 10px #fff, 0 0 15px #fff, inset 0 0 20px #FF10F0,
-    inset 0 0 30px #FF10F0, 0 0 35px #FF10F0, 0 0 45px #FF10F0, 0 0 60px #FF10F0;
-  }
-}
-button:hover {
-  transform: scale(1.2);
-  background-color: #b40fa9;
-}
-
-#result-container {
-  width:90%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  animation: neonBlue 2s ease-in-out infinite alternate;
-  color: white;
-  padding: 10px;
-}
-
 .congrats-message {
-  font-family: Monoton;
-  font-size: 7rem;
-  color: #ff00de;
+  font-size: 2rem;
+  font-family: 'Vampiro One';
+  font-weight: 300;
+  margin: 30px auto;
+  animation: neon-text-pink 0.5s ease-in-out infinite alternate;
 }
-
 .score-message {
-  font-family: Iceland;
-  font-size: 5rem;
-  color: #228dff;
+  font-family: 'Budmo Jiggler';
+  font-size: 3rem;
+  font-weight: 300;
+  color: #e1f2f3;
+  animation: neon-text-blue 2s ease-in-out infinite alternate;
 }
-
 .total-score {
-  font-size: 7rem;
-  animation: neonRedText 2s ease-in-out infinite alternate;
+  font-family: 'Budmo Jigglis';
+  font-weight: 300;
+  font-size: 3rem;
+  animation: neon-text-red-altered 0.1s cubic-bezier(0.42, 1.88, 0.36, -2.26)
+    infinite alternate;
 }
-@keyframes neonRedText {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
-      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
-      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
-  }
+#finnish-quiz-btn {
+  margin: 30px auto;
 }
-
 @media screen and (max-width: 620px) {
   body {
     height: 95vh;
   }
-  .scrollable {
-    height: auto;
-    max-height: 90vh;
-    overflow: auto;
-  }
+  
   #user-interface {
     background-size: contain;
     width: 80%;
     top: 5%;
-    left:10%;
+    left: 10%;
     height: 85vh;
   }
   .welcome-message {
@@ -402,25 +506,13 @@ button:hover {
   .answers-list {
     margin-top: 10%;
     margin-left: -15%;
-    grid-row-gap: 20px ;
+    grid-row-gap: 20px;
   }
   .answers-list li {
     margin: 2% 5%;
     padding: 10px;
   }
-  .reference-container {
-    margin-top: 30px;
-    margin-left: -35px;
-  }
-
   .progress-container {
     margin-top: 380px;
-  }
-
-  #next-question-button {
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-    margin-top: 520px;
   }
 }

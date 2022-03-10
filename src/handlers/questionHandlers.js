@@ -1,34 +1,58 @@
 'use strict';
 
-import { QUIZ_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID, SCORE_SPAN_ID } from '../constants.js';
-import { clearDOMElement, getDOMElement, getKeyByValue, checkAnswer, getCardElements, getCurrentContent, getInactiveCardElements, getCardContent } from '../utils/DOMUtils.js';
-import { quizData, timerData, animationData } from '../data.js';
-import { nextQuestion, showResult } from '../listeners/questionListeners.js';
-import { createResultContainerElement } from '../views/questionViews.js'
+import {
+  NEXT_QUESTION_BUTTON_ID,
+  SCORE_SPAN_ID,
+  USER_INTERFACE_ID,
+} from '../constants.js';
+import {
+  clearDOMElement,
+  getDOMElement,
+  getKeyByValue,
+  checkAnswer,
+  getCardElements,
+  getCurrentContent,
+  getCardContent,
+} from '../utils/DOMUtils.js';
+import { quizData, animationData } from '../data.js';
+import {
+  nextQuestion,
+  showResult,
+  selectedAnswer,
+} from '../listeners/questionListeners.js';
+import { getCurrentQuestion } from '../views/questionViews.js';
+import { createResultPage } from '../views/resultPageView.js';
 
 export const incrementQuestionIndex = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  quizData.currentQuestionIndex += 1;
 };
-
 export const showCurrentQuestion = () => {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-
+  const currentIndex = quizData.currentQuestionIndex;
+  //* Adding eventListener for answers for current question
+  const answers = document.getElementsByClassName(`answer${currentIndex}`);
+  for (let answer of answers) {
+    answer.addEventListener('click', selectedAnswer);
+  }
+  //*
   const timeCount = document.querySelector('.current-timer');
-  let time = currentQuestion.time;
-
+  let time = quizData.time;
+  timeCount.innerText = `Time left: ${time}`;
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
-    time > 0 ? time-- : time = 0;
-    timeCount.textContent = time;
-    // when the timer is 0, the correct answer assigned. 
+    time > 0 ? time-- : (time = 0);
+    timeCount.textContent = `Time left: ${time}`;
+    // when the timer is 0, the correct answer assigned.
     if (time === 0) {
       showCorrectAnswer();
+      for (let answer of answers) {
+        answer.removeEventListener('click', selectedAnswer);
+      }
       nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
-      clearInterval(timerData.counter);
+      clearInterval(quizData.counter);
     }
-  }
-  timerData.counter = setInterval(timerCountdown, 1000);
+  };
+  quizData.counter = setInterval(timerCountdown, 1000);
 
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
@@ -41,31 +65,25 @@ export const deleteQuestionCard = () => {
   const cardContent = getCardContent();
   const cardContentNumber = 9 - animationData.i;
 
-  cardContent[cardContentNumber].classList.remove("active");
+  cardContent[cardContentNumber].classList.remove('active');
 
-  card[animationData.layer - 1].style.height = "0";
-  card[animationData.layer - 1].style.padding = "0";
-  card[animationData.layer - 1].classList.remove("active");
-  card[animationData.layer - 1].classList.add("inactive");
+  card[animationData.layer - 1].style.height = '0';
+  card[animationData.layer - 1].style.padding = '0';
+  card[animationData.layer - 1].classList.remove('active');
+  card[animationData.layer - 1].classList.add('inactive');
 
   animationData.i += 1;
-  animationData.step += 10;
+  animationData.step -= 10;
   animationData.layer -= 1;
 
-  card[9 - animationData.i].style.animation = 'neon 2s ease-in-out infinite alternate';
-  const progressBar = document.querySelector('.progress-container');
-  let progressBarMarginTop = progressBar.offsetTop;
-  let progressBarMarginLeft = progressBar.offsetLeft;
-  progressBarMarginTop -= 8;
-  progressBarMarginLeft += 8;
-  progressBar.style.marginTop = `${progressBarMarginTop}px`;
-  progressBar.style.marginLeft = `${progressBarMarginLeft}px`;
+  card[9 - animationData.i].style.animation =
+    'neon-blue 2s ease-in-out infinite alternate';
 
   if (animationData.i < cardContent.length) {
-    document.getElementById("step").style.width = animationData.step + "%";
+    document.getElementById('step').style.height = animationData.step + '%';
     const nextCardContentNumber = 9 - animationData.i;
     const nextItem = cardContent[nextCardContentNumber];
-    currentContent = nextItem.classList.add("active");
+    currentContent = nextItem.classList.add('active');
   }
   if (animationData.i == 9) {
     const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
@@ -78,23 +96,36 @@ export const deleteQuestionCard = () => {
 export const showCurrentScore = () => {
   const currentScore = quizData.currentTotalScore;
   const scoreSpan = getDOMElement(SCORE_SPAN_ID);
-  scoreSpan.innerText = currentScore;
+  scoreSpan.innerText = `Score: ${currentScore}`;
 };
 
-export const clearQuizContainer = () => {
-  const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);
-  clearDOMElement(quizContainer);
+export const clearUserInterface = () => {
+  const userInterface = getDOMElement(USER_INTERFACE_ID);
+  clearDOMElement(userInterface);
 };
 
-export function handleSelectedAnswer(evt) {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+export const handleSelectedAnswer = (evt) => {
+  const currentIndex = quizData.currentQuestionIndex;
+  //* Removing eventListeners from all current answers after one click
+  const answers = document.getElementsByClassName(`answer${currentIndex}`);
+  for (let answer of answers) {
+    answer.removeEventListener('click', selectedAnswer);
+  }
+  //*
+  const currentQuestion = getCurrentQuestion();
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
 
-  currentQuestion.selected = getKeyByValue(currentQuestion.answers, evt.target.textContent);
+  currentQuestion.selected = getKeyByValue(
+    currentQuestion.answers,
+    evt.target.textContent
+  );
 
-  clearInterval(timerData.counter);
+  clearInterval(quizData.counter);
   nextQuestionButton.addEventListener('click', nextQuestion);
-  const isCorrect = checkAnswer(currentQuestion.selected, currentQuestion.correct);
+  const isCorrect = checkAnswer(
+    currentQuestion.selected,
+    currentQuestion.correct
+  );
 
   if (isCorrect && quizData.isAnswered === false) {
     quizData.currentTotalScore += 1;
@@ -110,16 +141,17 @@ export function handleSelectedAnswer(evt) {
 };
 
 export const showQuizResult = () => {
-  clearQuizContainer();
-  const userInterfaceContainer = getDOMElement('user-interface');
-  userInterfaceContainer.style.animation = 'none';
-  const resultPage = createResultContainerElement();
+  clearUserInterface();
+  const userInterfaceContainer = getDOMElement(USER_INTERFACE_ID);
+  const resultPage = createResultPage();
   userInterfaceContainer.appendChild(resultPage);
 };
 
 export const showCorrectAnswer = () => {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  const allAnswerElement = document.querySelector('.card-content.active').querySelectorAll('ol li');
+  const currentQuestion = getCurrentQuestion();
+  const allAnswerElement = document
+    .querySelector('.card-content.active')
+    .querySelectorAll('ol li');
   switch (currentQuestion.correct) {
     case 'a':
       allAnswerElement[0].classList.add('correct-answer');

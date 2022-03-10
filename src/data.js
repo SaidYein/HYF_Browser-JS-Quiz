@@ -14,8 +14,10 @@
 export const quizData = {
   currentQuestionIndex: 0,
   currentTotalScore: 0,
-  userName: '',
+  userName: 'Ghost',
   isAnswered: false,
+  time: 30,
+  counter: '',
   // the questions in the quiz
   questions: [
     {
@@ -28,7 +30,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      time: 5,
       links: [
         {
           text: 'javascript.info',
@@ -50,7 +51,6 @@ export const quizData = {
       },
       correct: 'd',
       selected: null,
-      time: 10,
       links: [
         {
           text: 'javascript.info',
@@ -74,12 +74,12 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      time: 13,
       links: [
         {
           text: 'w3schools',
-          href: 'https://www.w3schools.com/js/js_whereto.asp#:~:text=In%20HTML%2C%20JavaScript%20code%20is,and%20tags',
-        }
+          href:
+            'https://www.w3schools.com/js/js_whereto.asp#:~:text=In%20HTML%2C%20JavaScript%20code%20is,and%20tags',
+        },
       ],
     },
     {
@@ -92,12 +92,11 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      time: 10,
       links: [
         {
           text: 'w3schools',
           href: 'https://www.w3schools.com/js/js_booleans.asp',
-        }
+        },
       ],
     },
     {
@@ -110,16 +109,16 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      time: 15,
       links: [
         {
           text: 'MDN',
-          href: 'https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById',
         },
         {
           text: 'w3schools',
           href: 'https://www.w3schools.com/js/js_htmldom_html.asp',
-        }
+        },
       ],
     },
     {
@@ -128,11 +127,10 @@ export const quizData = {
         a: 'browser.name',
         b: 'navigator.userAgent',
         c: 'navigator.appName',
-        d: 'Both b & c are correct'
+        d: 'Both b & c are correct',
       },
       correct: 'd',
       selected: null,
-      time: 10,
       links: [
         {
           text: 'codepedia.info',
@@ -141,7 +139,7 @@ export const quizData = {
         {
           text: 'javascripter',
           href: 'http://www.javascripter.net/faq/browsern.htm',
-        }
+        },
       ],
     },
     {
@@ -150,16 +148,16 @@ export const quizData = {
         a: 'push',
         b: 'splice',
         c: 'concat',
-        d: 'length'
+        d: 'length',
       },
       correct: 'c',
       selected: null,
-      time: 11,
       links: [
         {
           text: 'samanthaming',
-          href: 'https://www.samanthaming.com/tidbits/87-5-ways-to-append-item-to-array/',
-        }
+          href:
+            'https://www.samanthaming.com/tidbits/87-5-ways-to-append-item-to-array/',
+        },
       ],
     },
     {
@@ -168,16 +166,15 @@ export const quizData = {
         a: 'var',
         b: 'let',
         c: 'const',
-        d: 'None of the above'
+        d: 'None of the above',
       },
       correct: 'a',
       selected: null,
-      time: 14,
       links: [
         {
           text: 'w3schools',
           href: 'https://www.w3schools.com/js/js_scope.asp',
-        }
+        },
       ],
     },
     {
@@ -190,7 +187,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      time: 10,
       links: [
         {
           text: 'w3schools',
@@ -199,7 +195,7 @@ export const quizData = {
         {
           text: 'w3schools',
           href: 'https://www.w3schools.com/js/js_whereto.asp',
-        }
+        },
       ],
     },
     {
@@ -208,31 +204,27 @@ export const quizData = {
         a: 'round(7.25)',
         b: 'Math.round(7.25)',
         c: 'Math.rnd(7.25)',
-        d: 'rnd(7.25)'
+        d: 'rnd(7.25)',
       },
       correct: 'b',
       selected: null,
-      time: 13,
       links: [
         {
           text: 'MDN',
-          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round',
         },
         {
           text: 'w3schools',
           href: 'https://www.w3schools.com/jsref/jsref_round.asp',
-        }
+        },
       ],
     },
   ],
 };
 
-export let timerData = {
-  counter: ''
-};
-
-export let animationData = {
+export const animationData = {
   i: 0,
-  step: 0,
-  layer: 10
+  step: 100,
+  layer: 10,
 };
