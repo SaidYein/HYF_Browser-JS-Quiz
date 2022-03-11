@@ -2,6 +2,8 @@
   "name": "js-quiz-starter",
   "version": "1.0.0",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "document": "node ./lib/document.js",
     "test": "node ./lib/test.js",
     "test-ci": "node ./lib/test.js CI"
